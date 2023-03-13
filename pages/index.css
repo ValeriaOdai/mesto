@@ -1,20 +1,49 @@
-.page {
-  background-color: #000000;
-  max-width: 1280px;
+@import url(../vendor/normalize.css);
+
+@import url(../blocks/page/page.css);
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__logo/header__logo.css);
+
+.profile {
+  max-width: 880px;
+  margin: 0 auto 50px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.header {
-max-width: 880px;
-min-height: 74px;
-margin: 45px auto 40px;
-position: relative;
-border-bottom: 1px solid #545454;
+.profile__info {
+list-style: none;
+/* margin: auto 244px auto 30px; */
+margin-left: 30px;
+margin-right: 244px;
+padding: 0;
 }
 
-.header__logo {
-  width: 142px;
-  height: 33px;
-  position: absolute;
-  top: 0;
-  left: 0;
+.profile__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-right: 0;
+}
+
+.profile__name {
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 42px;
+line-height: 1.14;
+color: #FFFFFF;
+}
+
+.profile__occupation {
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+color: #FFFFFF;
+}
+
+.profile__edit-button {
+  margin-right: 0;
 }
