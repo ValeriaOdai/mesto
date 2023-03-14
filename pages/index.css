@@ -22,6 +22,19 @@
   outline: 1px solid #32a6a8;
 }
 
+.footer {
+margin-left: 200px;
+margin-bottom: 60px;
+}
+
+.footer__text {
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 1.2;
+color: #545454;
+}
 
 
 
