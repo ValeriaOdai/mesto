@@ -4,19 +4,14 @@
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
 
+.border {
+  outline: 1px solid #32a6a8;
+}
 .profile {
   max-width: 880px;
   margin: 0 auto 50px;
   display: flex;
   justify-content: space-between;
-}
-
-.profile__info {
-list-style: none;
-/* margin: auto 244px auto 30px; */
-margin-left: 30px;
-margin-right: 244px;
-padding: 0;
 }
 
 .profile__avatar {
@@ -26,6 +21,14 @@ padding: 0;
   margin-right: 0;
 }
 
+.profile__info {
+  list-style: none;
+  margin: auto 234px auto 30px; 
+  /* margin-left: 30px;
+  margin-right: 234px; */
+  padding: 0;
+  }
+
 .profile__name {
 font-family: 'Inter';
 font-style: normal;
@@ -33,9 +36,11 @@ font-weight: 500;
 font-size: 42px;
 line-height: 1.14;
 color: #FFFFFF;
+margin-bottom: 16px;
+margin-right: 18px;
 }
 
-.profile__occupation {
+.profile__subtitle {
   font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -46,4 +51,20 @@ color: #FFFFFF;
 
 .profile__edit-button {
   margin-right: 0;
+  background: no-repeat center url(../images/edit_button.svg);
+  border: 1px solid #FFFFFF;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+
+.profile__add-button {
+  background: no-repeat center url(../images/Vector.svg);
+  border: 2px solid #FFFFFF;
+  width: 150px;
+  height: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0;
 }
