@@ -6,3 +6,10 @@
   border-bottom: 1px solid #545454;
   }
   
+  @media screen and (max-width: 767px) {
+    .header {
+      max-width: 282px;
+      min-height: 56px;
+      margin: 28px auto 42px;
+    }
+  }
