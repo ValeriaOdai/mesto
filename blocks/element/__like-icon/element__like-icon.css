@@ -10,6 +10,6 @@
 }
 
 .element__like-icon:active {
-  Background: url(../../../images/Union.svg);
+  background: url(../../../images/Union.svg);
   opacity: 1;
 }
