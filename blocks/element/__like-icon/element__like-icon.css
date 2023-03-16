@@ -3,3 +3,13 @@
   height: 18px;
   margin-right: 20px;
 }
+
+.element__like-icon:hover {
+  opacity: 0.6;
+  transition: opacity;
+}
+
+.element__like-icon:active {
+  Background: url(../../../images/Union.svg);
+  opacity: 1;
+}

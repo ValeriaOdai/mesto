@@ -1,20 +1,18 @@
 .profile__subtitle {
   font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 22px;
-color: #FFFFFF;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #FFFFFF;
+  margin: 0;
 }
 
 @media screen and (max-width: 767px) {
   .profile__subtitle {
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 17px;
-text-align: center;
-color: #FFFFFF;
+    font-size: 14px;
+    line-height: 1.2;
+    text-align: center;
+    color: #FFFFFF;
   }
 }

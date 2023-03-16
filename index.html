@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,20 +10,21 @@
 </head>
 
 <body class="page">
-  <header class="header border">
-  <img src="./images/mesto_logo.svg" alt="логотип проекта Место" class="header__logo border">
+  <header class="header">
+    <img src="./images/mesto_logo.svg" alt="логотип проекта Место" class="header__logo">
   </header>
   <main>
-    <section class="profile border">
-      <img src="./images/avatar.jpg" alt="фотография пользователя" class="profile__avatar border">
-      <ul class="profile__info">
-        <li class="profile__name border">Жак-Ив Кусто <button class="profile__edit-button"></button></li>
-        <li class="profile__subtitle border">Исследователь океана</li>
-      </ul>
-      <button class="profile__add-button border"></button>
+    <section class="profile">
+      <img src="./images/avatar.jpg" alt="фотография пользователя" class="profile__avatar">
+      <div class="profile__info">
+        <h1 class="profile__name">Жак-Ив Кусто </h1>
+        <button class="profile__edit-button cursor-opacity"></button>
+        <p class="profile__subtitle">Исследователь океана</p>
+      </div>
+      <button class="profile__add-button cursor-opacity"></button>
     </section>
 
-    <section class="elements border">
+    <section class="elements">
       <div class="element">
         <img src="./images/element_Altay.jpg" alt="" class="element__photo">
         <div class="element__description">
@@ -35,7 +37,7 @@
         <img src="./images/element_KCHR.jpg" alt="" class="element__photo">
         <div class="element__description">
           <p class="element__name">Карачаево-Черкессия</p>
-          <img src="./images/like-icon.svg" alt="" class="element__like-icon">
+          <img src="./images/like-icon.svg" alt="" class="element__like-icon cursor-opacity">
         </div>
       </div>
 
@@ -43,7 +45,7 @@
         <img src="./images/element_Elbrus.jpg" alt="" class="element__photo">
         <div class="element__description">
           <p class="element__name">Гора Эльбрус</p>
-          <img src="./images/like-icon.svg" alt="" class="element__like-icon">
+          <img src="./images/like-icon.svg" alt="" class="element__like-icon cursor-opacity">
         </div>
       </div>
 
@@ -51,7 +53,7 @@
         <img src="./images/element_Baikal.jpg" alt="" class="element__photo">
         <div class="element__description">
           <p class="element__name">Байкал</p>
-          <img src="./images/like-icon.svg" alt="" class="element__like-icon">
+          <img src="./images/like-icon.svg" alt="" class="element__like-icon cursor-opacity">
         </div>
       </div>
 
@@ -59,7 +61,7 @@
         <img src="./images/element_Vladivostok.jpg" alt="" class="element__photo">
         <div class="element__description">
           <p class="element__name">Владивосток</p>
-          <img src="./images/like-icon.svg" alt="" class="element__like-icon">
+          <img src="./images/like-icon.svg" alt="" class="element__like-icon cursor-opacity">
         </div>
       </div>
 
@@ -67,26 +69,29 @@
         <img src="./images/element_Krasnaya_Polyana.jpg" alt="" class="element__photo">
         <div class="element__description">
           <p class="element__name">Красная Поляна</p>
-          <img src="./images/like-icon.svg" alt="" class="element__like-icon">
+          <img src="./images/like-icon.svg" alt="" class="element__like-icon cursor-opacity">
         </div>
       </div>
     </section>
 
-    <section class="form">
-      <div class="form__container border">
-        <button class="form__close-button"></button>
-        <form class="form__content border">
-          <p class="form__title border">Редактировать профиль</p>
-          <input type="text" class="form__name" value="Жак-Ив Кусто">
-          <input type="text" class="form__subtitle" value="Исследователь океана">
-          <input type="submit" class="form__submit border" value="Сохранить">
+    <section class="popup">
+      <div class="popup__container">
+        <button class="popup__close-button cursor-opacity"></button>
+        <form class="popup__content">
+          <p class="popup__title">Редактировать профиль</p>
+          <input type="text" class="popup__name" value="Жак-Ив Кусто">
+          <input type="text" class="popup__subtitle" value="Исследователь океана">
+          <input type="submit" class="popup__submit cursor-opacity" value="Сохранить">
         </form>
       </div>
     </section>
   </main>
-  
-<footer class="footer border">
-<p class="footer__text">© 2020 Mesto Russia</p>
-</footer>
+
+  <footer class="footer">
+    <p class="footer__text">© 2020 Mesto Russia</p>
+  </footer>
+
+  <script src="./scripts/script.js"></script>
 </body>
+
 </html>
