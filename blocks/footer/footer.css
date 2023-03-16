@@ -2,8 +2,9 @@
   margin-left: 200px;
   margin-bottom: 60px;
   }
+
   
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1023px) {
     .footer {
       margin: 0 auto 36px;
     }
