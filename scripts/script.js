@@ -10,7 +10,8 @@ profileEditButton.addEventListener('click', openPopup);
 
 popupCloseButton.addEventListener('click', openPopup);
 
-let formElement = document.querySelector('.popup__content'); 
+let formElement = document.querySelector('.popup__content');
+
 let nameInput = formElement.querySelector('.popup__name'); 
 let jobInput = formElement.querySelector('.popup__subtitle'); 
 
@@ -25,6 +26,8 @@ function handleFormSubmit (evt) {
    
     profileNameValue.textContent = profileNameInputValue;
     profileSubtitleValue.textContent = jobInputValue; 
+
+    popupElement.classList.remove('popup_opened');
   }
 
 formElement.addEventListener('submit', handleFormSubmit); 
