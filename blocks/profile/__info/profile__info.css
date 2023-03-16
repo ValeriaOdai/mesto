@@ -1,5 +1,6 @@
 .profile__info {
-  max-width: 336px;
+  /*
+  max-width: 336px; */
   margin: auto 234px auto 30px; 
   padding: 0;
   display: flex;
@@ -10,5 +11,6 @@
   @media screen and (max-width: 767px) {
     .profile__info {
       margin: 26px auto 36px;
+      justify-content: center;
     }
   }
