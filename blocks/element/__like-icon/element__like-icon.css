@@ -1,11 +1,15 @@
 .element__like-icon {
+  background: no-repeat center url(../../../images/like-icon.svg);
+  border: none;
   width: 22px;
   height: 18px;
   margin-right: 20px;
+  padding: 0;
+  background-size: contain;
 }
 
 .element__like-icon:hover {
-  opacity: 0.6;
+  opacity: 0.5;
   transition: opacity;
 }
 

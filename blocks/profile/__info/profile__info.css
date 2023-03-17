@@ -1,11 +1,12 @@
 .profile__info {
-  margin: auto 234px auto 30px;
+  margin: 22px 234px 25px 30px;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
+  /*
   justify-content: space-between;
-  max-width: 336px;
+  max-width: 336px; */
   overflow: hidden;
   }
 
