@@ -6,7 +6,7 @@
   line-height: 22px;
   color: #FFFFFF;
   margin: 0;
-  max-width: 336px;
+  width: 336px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -18,7 +18,7 @@
     line-height: 17px;
     text-align: center;
     color: #FFFFFF;
-    max-width: 282px;
+    width: 282px;
     margin: 0 auto;
     padding: 0;
     height: 14px;
