@@ -3,19 +3,21 @@
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 1.2;
+  line-height: 17px;
   color: #000000;
   width: 358px;
   margin: 0 auto 30px;
   border: 0;
   border-bottom: 1px solid #bcbcc4;
   background-color: transparent;
-  padding-bottom: 13px;
   outline: none;
-}
+  padding: 0;
+  padding-bottom: 9px;
+} 
 
 @media screen and (max-width: 767px) {
   .popup__name {
     width: 238px;
   }
 }
+
