@@ -6,10 +6,16 @@
   left: 0;
 }
 
+@media screen and (max-width: 880px) {
+  .header__logo {
+    margin-left: 27px;  
+  }
+}
+
+
 @media screen and (max-width: 767px) {
   .header__logo {
     width: 103px;
     height: 24px;
-    margin-left: 27px;
   }
 }

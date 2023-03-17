@@ -32,7 +32,9 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__text/footer__text.css);
 
-
+.border {
+  outline: 1px solid palevioletred;
+}
 
 
 

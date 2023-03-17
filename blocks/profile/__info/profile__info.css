@@ -4,11 +4,14 @@
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
+  justify-content: space-between;
+  max-width: 336px;
+  overflow: hidden;
   }
 
   @media screen and (max-width: 767px) {
     .profile__info {
       margin: 26px auto 36px;
-      justify-content: center;
+      height: 54px;
     }
   }
