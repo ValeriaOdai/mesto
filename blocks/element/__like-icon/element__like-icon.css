@@ -11,6 +11,7 @@
 .element__like-icon:hover {
   opacity: 0.5;
   transition: opacity;
+  cursor: pointer;
 }
 
 .element__like-icon:active {

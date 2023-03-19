@@ -8,20 +8,22 @@ let jobInput = formElement.querySelector('.popup__info_type_occupation');
 let profileNameValue = document.querySelector('.profile__name');
 let profileSubtitleValue = document.querySelector('.profile__subtitle')
 
-const openPopup = function () {
-  popupElement.classList.add('popup_opened');
-};
 
-const closePopup = function () {
+function openPopup () {
+  nameInput.value = profileNameValue.textContent;
+  jobInput.value = profileSubtitleValue.textContent;
+  popupElement.classList.add('popup_opened');
+}
+
+function closePopup () {
   popupElement.classList.remove('popup_opened');
-};
+}
 
 function handleFormSubmit(evt) {
   evt.preventDefault();
   profileNameValue.textContent = nameInput.value;
   profileSubtitleValue.textContent = jobInput.value;
-
-  popupSubmitButton.addEventListener('click', closePopup);
+  closePopup();
 }
 
 profileEditButton.addEventListener('click', openPopup);
