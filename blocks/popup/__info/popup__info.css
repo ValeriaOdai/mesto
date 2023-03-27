@@ -1,5 +1,5 @@
 .popup__info {
-  font-family: 'Inter', ‘Arial’, sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -19,4 +19,14 @@
   .popup__info {
     width: 238px;
   }
+}
+
+
+.popup__info::placeholder {
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #C4C4C4;
 }
