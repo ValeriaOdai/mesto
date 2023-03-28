@@ -50,6 +50,7 @@ function createCard(data) {
   cardElement.querySelector('.element__name').textContent = data.name;
   cardElement.querySelector('.element__photo').src = data.link;
   cardElement.querySelector('.element__photo').alt = data.name;
+  setEventListeners (cardElement);
   return cardElement;
 }; 
 
@@ -116,12 +117,25 @@ popupCardsCloseButton.addEventListener('click', closeCardsPopup);
 /**/
 formCardElement.addEventListener('submit', handleCardsFormSubmit); 
 
+function setEventListeners (cardElement) {
+  cardElement.querySelector('.element__delete-button').addEventListener('click', handleCardDelete);
+  cardElement.querySelector('.element__like-icon').addEventListener('click', handleCardLike);
+}
+
+function handleCardDelete (event) {
+  event.target.closest('.element').remove();
+}
+
+function handleCardLike (event) {
+  console.log('like');
+
+ // event.target.closest('.element').classList.add('.')
+}
 
 
 
 
-
-
+ 
 
 
 
