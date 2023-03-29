@@ -25,55 +25,7 @@
     </section>
 
     <section class="elements">
-<!--
-      <article class="element">
-        <img src="./images/element_Altay.jpg" alt="фотография горного озера" class="element__photo">
-        <div class="element__description">
-          <h2 class="element__name">Алтай</h2>
-          <button class="element__like-icon" type="button"></button>
-        </div>
-      </article>
 
-      <article class="element">
-        <img src="./images/element_KCHR.jpg" alt="фотография древнего храма в горах" class="element__photo">
-        <div class="element__description">
-          <h2 class="element__name">Карачаево-Черкессия</h2>
-          <button class="element__like-icon" type="button"></button>
-        </div>
-      </article>
-
-      <article class="element">
-        <img src="./images/element_Elbrus.jpg" alt="фотография человека, стоящего на фоне горы Эльбрус" class="element__photo">
-        <div class="element__description">
-          <h2 class="element__name">Гора Эльбрус</h2>
-          <button class="element__like-icon" type="button"></button>
-        </div>
-      </article>
-
-      <article class="element">
-        <img src="./images/element_Baikal.jpg" alt="фотография автомобиля на льду Байкала" class="element__photo">
-        <div class="element__description">
-          <h2 class="element__name">Байкал</h2>
-          <button class="element__like-icon" type="button"></button>
-        </div>
-      </article>
-
-      <article class="element">
-        <img src="./images/element_Vladivostok.jpg" alt="фотография маяка" class="element__photo">
-        <div class="element__description">
-          <h2 class="element__name">Владивосток</h2>
-          <button class="element__like-icon" type="button"></button>
-        </div>
-      </article>
-
-      <article class="element">
-        <img src="./images/element_Krasnaya_Polyana.jpg" alt="фотография гор на закате" class="element__photo">
-        <div class="element__description">
-          <h2 class="element__name">Красная Поляна</h2>
-          <button class="element__like-icon" type="button"></button>
-        </div>
-      </article>
-    -->
     </section>
   </main>
 
@@ -87,7 +39,8 @@
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__content popup__content_type_profile" name="EditProfileForm">
         <input type="text" class="popup__info popup__info_type_name" value="Жак-Ив Кусто" name="name">
-        <input type="text" class="popup__info popup__info_type_occupation" value="Исследователь океана" name="occupation">
+        <input type="text" class="popup__info popup__info_type_occupation" value="Исследователь океана"
+          name="occupation">
         <button type="submit" class="popup__submit">Сохранить</button>
       </form>
     </div>
@@ -99,17 +52,18 @@
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__content popup__content_type_card" name="EditProfileForm">
         <input type="text" class="popup__info popup__info_type_place-name" placeholder="Название" name="name">
-        <input type="text" class="popup__info popup__info_type_place-link" placeholder="Ссылка на картинку" name="occupation">
+        <input type="text" class="popup__info popup__info_type_place-link" placeholder="Ссылка на картинку"
+          name="occupation">
         <button type="submit" class="popup__submit">Создать</button>
       </form>
     </div>
   </section>
 
   <section class="popup popup_type_photo" id="card-photo">
-    <figure class="popup__photo-container border">
-      <button class="popup__close-button popup__close-button_type_photo cursor-opacity border" type="button"></button>
-      <img src="#" alt="фотография места" class="popup__photo border">
-      <figcaption class="popup__caption border">Фотография</figcaption>
+    <figure class="popup__photo-container">
+      <button class="popup__close-button popup__close-button_type_photo cursor-opacity" type="button"></button>
+      <img src="#" alt="фотография места" class="popup__photo">
+      <figcaption class="popup__caption">Фотография</figcaption>
     </figure>
   </section>
 
