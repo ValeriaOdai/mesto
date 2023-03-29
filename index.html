@@ -105,14 +105,21 @@
     </div>
   </section>
 
-  
+  <section class="popup popup_type_photo" id="card-photo">
+    <figure class="popup__photo-container border">
+      <button class="popup__close-button popup__close-button_type_photo cursor-opacity border" type="button"></button>
+      <img src="#" alt="фотография места" class="popup__photo border">
+      <figcaption class="popup__caption border">Фотография</figcaption>
+    </figure>
+  </section>
+
   <template id="card-template">
     <article class="element">
       <button class="element__delete-button cursor-opacity" type="button"></button>
-      <img alt="фотография места" class="element__photo">
+      <img src="#" alt="фотография места" class="element__photo">
       <div class="element__description">
         <h2 class="element__name"></h2>
-        <button class="element__like-icon element__like-icon_status_on" type="button"></button>
+        <button class="element__like-icon" type="button"></button>
       </div>
     </article>
   </template>

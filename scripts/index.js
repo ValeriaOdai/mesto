@@ -16,6 +16,11 @@ const cardsSection = document.querySelector('.elements');
 const cardTemplate = document.querySelector('#card-template').content;
 let cardNameInput = document.querySelector('.popup__info_type_place-name');
 let cardImageInput = document.querySelector('.popup__info_type_place-link');
+/* новый блок */
+const photoInput = document.querySelector('.popup__photo');
+const photoCaptionInput = document.querySelector('.popup__caption');
+const popupPhotoElement = document.querySelector('.popup_type_photo');
+const popupPhotoCloseButton = document.querySelector('.popup__close-button_type_photo');
 
 
 const initialCards = [
@@ -48,11 +53,19 @@ const initialCards = [
 function createCard(data) {
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
   cardElement.querySelector('.element__name').textContent = data.name;
-  cardElement.querySelector('.element__photo').src = data.link;
+  cardElement.querySelector('.element__photo').src = data.link; 
   cardElement.querySelector('.element__photo').alt = data.name;
   setEventListeners (cardElement);
+  cardElement.querySelector('.element__photo').addEventListener('click', () => handleCardExpand(data));
   return cardElement;
 }; 
+
+function handleCardExpand (data) {
+  photoInput.src = data.link;
+  photoCaptionInput.textContent = data.name;
+  openPhotoPopup();
+}
+
 
 function renderCard(item) {
   const cardElement = createCard(item);
@@ -70,6 +83,17 @@ initialCards.forEach(function(item) {
   jobInput.value = profileSubtitleValue.textContent;
   popupElement.classList.add('popup_opened');
 }
+
+/*new*/
+function openPhotoPopup () {
+  popupPhotoElement.classList.add('popup_opened');
+  }
+
+  function closePhotoPopup () {
+    popupPhotoElement.classList.remove('popup_opened');
+    }
+
+    popupPhotoCloseButton.addEventListener('click', closePhotoPopup);
 
 /**/
 function closeProfilePopup () {
@@ -127,10 +151,12 @@ function handleCardDelete (event) {
 }
 
 function handleCardLike (event) {
-  console.log('like');
-
- // event.target.closest('.element').classList.add('.')
+  event.target.closest('.element__like-icon').classList.toggle('element__like-icon_status_on');
 }
+
+
+
+
 
 
 
