@@ -1,7 +1,7 @@
 .popup__photo-container {
   max-width: 75vw;
   max-height: 75vh;
-  margin: auto;  
+  margin: auto;
   display: grid;
   grid-template-rows: repeat(3, minmax(min-content, max-content));
   grid-template-columns: fit-content(75vh);
