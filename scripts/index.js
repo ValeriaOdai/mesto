@@ -1,4 +1,4 @@
-/* оставляем */ const profileEditButton = document.querySelector('.profile__edit-button');
+const profileEditButton = document.querySelector('.profile__edit-button');
 const popupElement = document.querySelector('.popup_type_profile');
 /*оставляем, но я бы переименовала класс*/ const cardsAddButton = document.querySelector('.profile__add-button');
 const popupCardsElement = document.querySelector('.popup_type_card');
