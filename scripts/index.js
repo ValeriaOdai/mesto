@@ -119,22 +119,3 @@ cardFormElement.addEventListener('submit', handleCardsFormSubmit);
 popupCardsCloseButton.addEventListener('click', closeCardsPopup);
 
 popupPhotoCloseButton.addEventListener('click', closePhotoPopup);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

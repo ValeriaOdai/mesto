@@ -51,10 +51,12 @@
       <button class="popup__close-button popup__close-button_type_cards cursor-opacity" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__content popup__content_type_card" name="EditProfileForm" novalidate>
-        <input type="text" class="popup__info popup__info_type_place-name" placeholder="Название" name="name">
-        <input type="text" class="popup__info popup__info_type_place-link" placeholder="Ссылка на картинку"
-          name="occupation">
-        <button type="submit" class="popup__submit">Создать</button>
+        <input type="text" id="name-card" class="popup__info popup__info_type_place-name" placeholder="Название" name="name" minlength="2" maxlength="30" required>
+        <span id="name-card-error" class="popup__error"></span>
+        <input type="url" id="link" class="popup__info popup__info_type_place-link" placeholder="Ссылка на картинку"
+          name="place" required>
+        <span id="link-error" class="popup__error"></span>
+        <button type="submit" class="popup__submit popup__submit_state_valid">Создать</button>
       </form>
     </div>
   </section>
@@ -79,6 +81,7 @@
   </template>
 
   <script src="./scripts/cards.js"></script>
+  <script src="./scripts/validate.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 
