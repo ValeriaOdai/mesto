@@ -2,11 +2,9 @@ const validationConfig = {
   formSelector: '.popup__content',
   inputSelector: '.popup__info',
   submitButtonSelector: '.popup__submit',
-  inactiveButtonClass: 'popup__button_invalid',
-  activeButtonClass: 'popup__button_valid'
+  inactiveButtonClass: 'popup__submit_state_invalid',
+  activeButtonClass: 'popup__submit_state_valid'
 }
-
-
 
 const enableValidation = ({ formSelector, ...rest }) => {
   const forms = Array.from(document.querySelectorAll(formSelector));
@@ -53,10 +51,10 @@ const enableButton = (button, { inactiveButtonClass, activeButtonClass }) => {
   button.setAttribute('disabled', true);
 }
 
-const disableButton = (button, { inactiveButtonClass, activeButtonClass }) => {
-  button.classList.add(inactiveButtonClass);
-  button.classList.remove(activeButtonClass);
-  button.removeAttribute('disabled', true);
+const disableButton = (formButton, { inactiveButtonClass, activeButtonClass }) => {
+  formButton.classList.add(inactiveButtonClass);
+  formButton.classList.remove(activeButtonClass);
+  formButton.removeAttribute('disabled', true);
 }
 
 enableValidation(validationConfig)

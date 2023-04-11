@@ -38,9 +38,11 @@
       <button class="popup__close-button popup__close-button_type_profile cursor-opacity" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__content popup__content_type_profile" name="EditProfileForm" novalidate>
-        <input type="text" class="popup__info popup__info_type_name" value="Жак-Ив Кусто" name="name">
-        <input type="text" class="popup__info popup__info_type_occupation" value="Исследователь океана"
-          name="occupation">
+        <input type="text" id="name-profile" class="popup__info popup__info_type_name" value="Жак-Ив Кусто" name="name" minlength="2" maxlength="40" required>
+        <span id="name-profile-error" class="popup__error"></span>
+        <input type="text" id="occupation-profile" class="popup__info popup__info_type_occupation" value="Исследователь океана"
+          name="occupation" minlength="2" maxlength="200" required>
+        <span id="occupation-profile-error" class="popup__error"></span>
         <button type="submit" class="popup__submit">Сохранить</button>
       </form>
     </div>
