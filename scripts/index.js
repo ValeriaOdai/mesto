@@ -46,11 +46,18 @@ initialCards.forEach(function (item) {
 
 function openPopup(element) {
   element.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByEscKey);
 };
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 };
+
+function closePopupByClickOnOverlay(evt) {
+  if (evt.target === evt.currentTarget) {
+  closePopup(evt.currentTarget);
+  }
+}
 
 function openProfilePopup() {
   nameInput.value = profileNameValue.textContent;
@@ -81,6 +88,13 @@ function closePhotoPopup() {
   closePopup(popupPhotoElement);
 }
 
+function closePopupByEscKey(evt) {
+  if (evt.key === 'Escape') {
+    const popupWindow = document.querySelector('.popup_opened');
+    closePopup(popupWindow);
+  }
+}
+
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileNameValue.textContent = nameInput.value;
@@ -109,13 +123,18 @@ function handleCardLike(event) {
   event.target.closest('.element__like-icon').classList.toggle('element__like-icon_status_on');
 }
 
-
 profileEditButton.addEventListener('click', openProfilePopup);
 profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 popupEditProfileCloseButton.addEventListener('click', closeProfilePopup);
+popupEditProfileElement.addEventListener('click', closePopupByClickOnOverlay);
+
+
+
 
 cardsAddButton.addEventListener('click', openCardsPopup);
 cardFormElement.addEventListener('submit', handleCardsFormSubmit);
 popupCardsCloseButton.addEventListener('click', closeCardsPopup);
+popupCardsElement.addEventListener('click', closePopupByClickOnOverlay);
 
 popupPhotoCloseButton.addEventListener('click', closePhotoPopup);
+popupPhotoElement.addEventListener('click', closePopupByClickOnOverlay);
