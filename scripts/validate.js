@@ -7,6 +7,8 @@ const validationConfig = {
   errorClass:'popup__error_active'
 }
 
+
+
 const enableValidation = function ({ formSelector, ...rest }) {
   const formList = Array.from(document.querySelectorAll(formSelector));
   formList.forEach(function (formElement) {
@@ -69,4 +71,12 @@ const hideInputError = function (formElement, inputElement, inputErrorClass, err
 
 enableValidation (validationConfig);
 
-
+const resetValidation = function (formElement, { inputSelector, submitButtonSelector }, inactiveButtonClass, inputErrorClass, errorClass) {
+  const inputList = Array.from(formElement.querySelectorAll(inputSelector));
+  const buttonElement = formElement.querySelector(submitButtonSelector);
+  inputList.forEach (function (inputElement) {
+    hideInputError(formElement, inputElement, validationConfig.inputErrorClass, validationConfig.errorClass);
+    toggleButtonState(inputList, buttonElement, validationConfig.inactiveButtonClass)
+  });
+}
+    

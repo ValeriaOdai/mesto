@@ -63,6 +63,7 @@ function openProfilePopup() {
   nameInput.value = profileNameValue.textContent;
   jobInput.value = profileSubtitleValue.textContent;
   openPopup(popupEditProfileElement);
+  resetValidation(profileFormElement, validationConfig);
 };
 
 function openCardsPopup() {
