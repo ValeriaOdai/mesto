@@ -55,7 +55,7 @@ function closePopup(popup) {
 
 function closePopupByClickOnOverlay(evt) {
   if (evt.target === evt.currentTarget) {
-  closePopup(evt.currentTarget);
+    closePopup(evt.currentTarget);
   }
 }
 
@@ -128,9 +128,6 @@ profileEditButton.addEventListener('click', openProfilePopup);
 profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 popupEditProfileCloseButton.addEventListener('click', closeProfilePopup);
 popupEditProfileElement.addEventListener('click', closePopupByClickOnOverlay);
-
-
-
 
 cardsAddButton.addEventListener('click', openCardsPopup);
 cardFormElement.addEventListener('submit', handleCardsFormSubmit);

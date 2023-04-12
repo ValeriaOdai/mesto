@@ -1,6 +1,13 @@
 .popup__error {
-margin-top: 5px;
-margin-left: 36px;
-margin-bottom: 13px;
-width: 358px;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+  width: 358px;
+  padding: 0;
+  min-height: 24px;
+  visibility: hidden;
+  box-sizing: border-box;
+  margin-top: 5px;
 }

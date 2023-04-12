@@ -1,3 +1,8 @@
 .popup__submit_state_invalid {
+  border: 1px solid #000000;
+  color: #000000;
+  border-radius: 2px;
   opacity: 0.2;
+  cursor: not-allowed;
+  background: #E5E5E5;
 }

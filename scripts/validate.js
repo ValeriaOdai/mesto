@@ -4,7 +4,7 @@ const validationConfig = {
   submitButtonSelector: '.popup__submit',
   inactiveButtonClass: 'popup__submit_state_invalid',
   inputErrorClass: 'popup__info_type_error',
-  errorClass:'popup__error_active'
+  errorClass: 'popup__error_active'
 }
 
 
@@ -15,11 +15,11 @@ const enableValidation = function ({ formSelector, ...rest }) {
     formElement.addEventListener('submit', function (evt) {
       evt.preventDefault();
     });
-  setEventListenersForm(formElement, rest);
-});
+    setEventListenersForm(formElement, rest);
+  });
 }
 
-const setEventListenersForm = (formElement, { inputSelector, submitButtonSelector, ...rest}) => {
+const setEventListenersForm = (formElement, { inputSelector, submitButtonSelector, ...rest }) => {
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
   const buttonElement = formElement.querySelector(submitButtonSelector);
   toggleButtonState(inputList, buttonElement, rest);
@@ -45,7 +45,7 @@ const hasInvalidInput = function (inputList) {
   })
 };
 
-const toggleButtonState = (inputList, buttonElement, { inactiveButtonClass } ) => {
+const toggleButtonState = (inputList, buttonElement, { inactiveButtonClass }) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(inactiveButtonClass);
     buttonElement.setAttribute('disabled', true);
@@ -69,14 +69,13 @@ const hideInputError = function (formElement, inputElement, inputErrorClass, err
   errorElement.textContent = ''
 }
 
-enableValidation (validationConfig);
+enableValidation(validationConfig);
 
 const resetValidation = function (formElement, { inputSelector, submitButtonSelector }, inactiveButtonClass, inputErrorClass, errorClass) {
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
   const buttonElement = formElement.querySelector(submitButtonSelector);
-  inputList.forEach (function (inputElement) {
+  inputList.forEach(function (inputElement) {
     hideInputError(formElement, inputElement, validationConfig.inputErrorClass, validationConfig.errorClass);
     toggleButtonState(inputList, buttonElement, validationConfig.inactiveButtonClass)
   });
 }
-    
