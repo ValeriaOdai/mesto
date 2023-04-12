@@ -7,8 +7,6 @@ const validationConfig = {
   errorClass: 'popup__error_active'
 }
 
-
-
 const enableValidation = function ({ formSelector, ...rest }) {
   const formList = Array.from(document.querySelectorAll(formSelector));
   formList.forEach(function (formElement) {
