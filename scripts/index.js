@@ -69,6 +69,7 @@ function openProfilePopup() {
 
 function openCardsPopup() {
   openPopup(popupCardsElement);
+  resetValidation(cardFormElement, validationConfig);
 };
 
 function openPhotoPopup(data) {
@@ -110,7 +111,6 @@ function handleCardsFormSubmit(evt) {
   renderCard(item);
   closeCardsPopup();
   evt.target.reset();
-  resetValidation(cardFormElement, validationConfig);
 }
 
 function setCardEventListeners(cardElement) {

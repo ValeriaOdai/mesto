@@ -18,10 +18,10 @@
       <img src="./images/avatar.jpg" alt="фотография пользователя" class="profile__avatar">
       <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто </h1>
-        <button class="profile__edit-button cursor-opacity" type="button"></button>
+        <button class="profile__edit-button cursor-opacity" aria-label="Редактировать профиль" type="button"></button>
         <p class="profile__subtitle">Исследователь океана</p>
       </div>
-      <button class="profile__add-button cursor-opacity" type="button"></button>
+      <button class="profile__add-button cursor-opacity" type="button" aria-label="Добавить карточку"></button>
     </section>
 
     <section class="elements">
@@ -35,14 +35,14 @@
 
   <section class="popup popup_type_profile" id="user-profile">
     <div class="popup__container">
-      <button class="popup__close-button popup__close-button_type_profile cursor-opacity" type="button"></button>
+      <button class="popup__close-button popup__close-button_type_profile cursor-opacity" type="button" aria-label="Закрыть всплывающее окно"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__content popup__content_type_profile" name="EditProfileForm" novalidate>
         <input type="text" id="name-profile" class="popup__info popup__info_type_name" value="Жак-Ив Кусто" name="name"
-          minlength="2" maxlength="40" required>
+          minlength="2" maxlength="40" required placeholder="Имя">
         <span class="popup__error name-profile-error"></span>
         <input type="text" id="occupation-profile" class="popup__info popup__info_type_occupation"
-          value="Исследователь океана" name="occupation" minlength="2" maxlength="200" required>
+          value="Исследователь океана" name="occupation" minlength="2" maxlength="200" required placeholder="О себе">
         <span class="popup__error occupation-profile-error"></span>
         <button type="submit" class="popup__submit">Сохранить</button>
       </form>
@@ -51,7 +51,7 @@
 
   <section class="popup popup_type_card" id="add-card">
     <div class="popup__container">
-      <button class="popup__close-button popup__close-button_type_cards cursor-opacity" type="button"></button>
+      <button class="popup__close-button popup__close-button_type_cards cursor-opacity" type="button" aria-label="Закрыть всплывающее окно"></button>
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__content popup__content_type_card" name="EditProfileForm" novalidate>
         <input type="text" id="name-card" class="popup__info popup__info_type_place-name" placeholder="Название"
@@ -67,7 +67,7 @@
 
   <section class="popup popup_type_photo" id="card-photo">
     <figure class="popup__photo-container">
-      <button class="popup__close-button popup__close-button_type_photo cursor-opacity" type="button"></button>
+      <button class="popup__close-button popup__close-button_type_photo cursor-opacity" type="button" aria-label="Закрыть всплывающее окно"></button>
       <img src="#" alt="фотография места" class="popup__photo">
       <figcaption class="popup__caption">Фотография</figcaption>
     </figure>
@@ -75,18 +75,18 @@
 
   <template id="card-template">
     <article class="element">
-      <button class="element__delete-button cursor-opacity" type="button"></button>
+      <button class="element__delete-button cursor-opacity" type="button" aria-label="Удалить карточку"></button>
       <img src="#" alt="фотография места" class="element__photo">
       <div class="element__description">
         <h2 class="element__name"></h2>
-        <button class="element__like-icon" type="button"></button>
+        <button class="element__like-icon" type="button" aria-label="Поставить лайк"></button>
       </div>
     </article>
   </template>
 
-  <script src="./scripts/constants.js"></script>
-  <script src="./scripts/validate.js"></script>
-  <script src="./scripts/index.js"></script>
+  <script defer src="./scripts/constants.js"></script>
+  <script defer src="./scripts/validate.js"></script>
+  <script defer src="./scripts/index.js"></script>
 </body>
 
 </html>
