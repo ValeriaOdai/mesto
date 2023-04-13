@@ -1,0 +1,6 @@
+.popup__submit_state_valid {
+  border: 0;
+  color: #FFFFFF;
+  border-radius: 2px;
+  background: #000000;
+}
