@@ -38,10 +38,11 @@
       <button class="popup__close-button popup__close-button_type_profile cursor-opacity" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__content popup__content_type_profile" name="EditProfileForm" novalidate>
-        <input type="text" id="name-profile" class="popup__info popup__info_type_name" value="Жак-Ив Кусто" name="name" minlength="2" maxlength="40" required>
+        <input type="text" id="name-profile" class="popup__info popup__info_type_name" value="Жак-Ив Кусто" name="name"
+          minlength="2" maxlength="40" required>
         <span class="popup__error name-profile-error"></span>
-        <input type="text" id="occupation-profile" class="popup__info popup__info_type_occupation" value="Исследователь океана"
-          name="occupation" minlength="2" maxlength="200" required>
+        <input type="text" id="occupation-profile" class="popup__info popup__info_type_occupation"
+          value="Исследователь океана" name="occupation" minlength="2" maxlength="200" required>
         <span class="popup__error occupation-profile-error"></span>
         <button type="submit" class="popup__submit">Сохранить</button>
       </form>
@@ -53,7 +54,8 @@
       <button class="popup__close-button popup__close-button_type_cards cursor-opacity" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__content popup__content_type_card" name="EditProfileForm" novalidate>
-        <input type="text" id="name-card" class="popup__info popup__info_type_place-name" placeholder="Название" name="name" minlength="2" maxlength="30" required>
+        <input type="text" id="name-card" class="popup__info popup__info_type_place-name" placeholder="Название"
+          name="name" minlength="2" maxlength="30" required>
         <span class="popup__error name-card-error"></span>
         <input type="url" id="link" class="popup__info popup__info_type_place-link" placeholder="Ссылка на картинку"
           name="place" required>
@@ -82,7 +84,7 @@
     </article>
   </template>
 
-  <script src="./scripts/cards.js"></script>
+  <script src="./scripts/constants.js"></script>
   <script src="./scripts/validate.js"></script>
   <script src="./scripts/index.js"></script>
 </body>

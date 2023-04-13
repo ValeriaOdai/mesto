@@ -1,12 +1,3 @@
-const validationConfig = {
-  formSelector: '.popup__content',
-  inputSelector: '.popup__info',
-  submitButtonSelector: '.popup__submit',
-  inactiveButtonClass: 'popup__submit_state_invalid',
-  inputErrorClass: 'popup__info_type_error',
-  errorClass: 'popup__error_active'
-}
-
 const enableValidation = function ({ formSelector, ...rest }) {
   const formList = Array.from(document.querySelectorAll(formSelector));
   formList.forEach(function (formElement) {
@@ -45,11 +36,11 @@ const hasInvalidInput = function (inputList) {
 
 const toggleButtonState = (inputList, buttonElement, { inactiveButtonClass }) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(inactiveButtonClass);
     buttonElement.setAttribute('disabled', true);
+    buttonElement.classList.add(inactiveButtonClass);
   } else {
-    buttonElement.classList.remove(inactiveButtonClass);
     buttonElement.removeAttribute('disabled', true);
+    buttonElement.classList.remove(inactiveButtonClass);
   }
 }
 
