@@ -7,13 +7,13 @@ const jobInput = profileFormElement.querySelector('.popup__info_type_occupation'
 const profileNameValue = document.querySelector('.profile__name');
 const profileSubtitleValue = document.querySelector('.profile__subtitle');
 
-const cardsAddButton = document.querySelector('.profile__add-button');
-const popupCardsElement = document.querySelector('.popup_type_card');
-const popupCardsCloseButton = popupCardsElement.querySelector('.popup__close-button_type_cards');
+//const cardsAddButton = document.querySelector('.profile__add-button');
+//const popupCardsElement = document.querySelector('.popup_type_card');
+//const popupCardsCloseButton = popupCardsElement.querySelector('.popup__close-button_type_cards');
 
-const cardsSection = document.querySelector('.elements');
+//const cardsSection = document.querySelector('.elements');
 
-const cardFormElement = document.querySelector('.popup__content_type_card');
+//const cardFormElement = document.querySelector('.popup__content_type_card');
 const cardTemplate = document.querySelector('#card-template').content;
 const cardNameInput = document.querySelector('.popup__info_type_place-name');
 const cardImageInput = document.querySelector('.popup__info_type_place-link');
@@ -23,26 +23,26 @@ const popupPhotoElement = document.querySelector('.popup_type_photo');
 const popupPhotoCloseButton = document.querySelector('.popup__close-button_type_photo');
 
 
-function createCard(data) {
-  const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
-  const cardPhotoElement = cardElement.querySelector('.element__photo');
-  cardElement.querySelector('.element__name').textContent = data.name;
-  cardPhotoElement.src = data.link;
-  cardPhotoElement.alt = data.name;
-  setCardEventListeners(cardElement);
-  cardPhotoElement.addEventListener('click', () => openPhotoPopup(data));
-  return cardElement;
-};
+// function createCard(data) {
+//   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
+//   const cardPhotoElement = cardElement.querySelector('.element__photo');
+//   cardElement.querySelector('.element__name').textContent = data.name;
+//   cardPhotoElement.src = data.link;
+//   cardPhotoElement.alt = data.name;
+//   setCardEventListeners(cardElement);
+//   cardPhotoElement.addEventListener('click', () => openPhotoPopup(data));
+//   return cardElement;
+// };
 
-function renderCard(cardData) {
-  const cardElement = createCard(cardData);
-  cardsSection.prepend(cardElement);
-}
+// function renderCard(cardData) {
+//   const cardElement = createCard(cardData);
+//   cardsSection.prepend(cardElement);
+// }
 
-initialCards.forEach(function (item) {
-  const card = createCard(item);
-  cardsSection.append(card);
-});
+// initialCards.forEach(function (item) {
+//   const card = createCard(item);
+//   cardsSection.append(card);
+// });
 
 function openPopup(element) {
   element.classList.add('popup_opened');
