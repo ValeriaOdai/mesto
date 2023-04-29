@@ -83,3 +83,9 @@ initialCards.forEach((item) => {
   const cardElement = card.createCard();
   cardsSection.append(cardElement);
 })
+
+function renderCard(element) {
+  const cardNew = new Card (element, '.card-template')
+  const cardElementNew = cardNew.createCard();
+  cardsSection.prepend(cardElementNew);
+}

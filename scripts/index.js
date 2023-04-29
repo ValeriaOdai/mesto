@@ -34,10 +34,10 @@ const photoCaptionInput = document.querySelector('.popup__caption');
 //   return cardElement;
 // };
 
-function renderCard(cardData) {
-  const cardElement = createCard(cardData);
-  cardsSection.prepend(cardElement);
-}
+// function renderCard(cardData) {
+//   const cardElement = createCard(cardData);
+//   cardsSection.prepend(cardElement);
+// }
 
 // initialCards.forEach(function (item) {
 //   const card = createCard(item);
