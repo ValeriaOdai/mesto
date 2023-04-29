@@ -113,19 +113,19 @@ function handleCardsFormSubmit(evt) {
   evt.target.reset();
 }
 
-function setCardEventListeners(cardElement) {
-  cardElement.querySelector('.element__delete-button').addEventListener('click', handleCardDelete);
-  cardElement.querySelector('.element__like-icon').addEventListener('click', handleCardLike);
-}
+// function setCardEventListeners(cardElement) {
+//   cardElement.querySelector('.element__delete-button').addEventListener('click', handleCardDelete);
+//   cardElement.querySelector('.element__like-icon').addEventListener('click', handleCardLike);
+// }
 
-function handleCardDelete(event) {
-  event.target.closest('.element').remove();
-}
+// function handleCardDelete(event) {
+//   event.target.closest('.element').remove();
+// }
 
-function handleCardLike(event) {
-  const likeIconElement = event.target
-  likeIconElement.classList.toggle('element__like-icon_status_on');
-}
+// function handleCardLike(event) {
+//   const likeIconElement = event.target
+//   likeIconElement.classList.toggle('element__like-icon_status_on');
+// }
 
 profileEditButton.addEventListener('click', openProfilePopup);
 profileFormElement.addEventListener('submit', handleProfileFormSubmit);

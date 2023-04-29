@@ -38,9 +38,26 @@ class Card {
     closePopup(popupPhotoElement);
   }
 
+  _handleCardLike() {
+    this._likeIconElement.classList.toggle('element__like-icon_status_on');
+  }
+
+  _handleCardDelete() {
+    this._element.remove();
+  }
+
   _setEventListeners () {
     this._element.querySelector('.element__photo').addEventListener('click', () => {
       this._openPhotoPopup()
+    })
+
+    this._likeIconElement = this._element.querySelector('.element__like-icon');
+    this._likeIconElement.addEventListener('click', () => {
+      this._handleCardLike()
+    });
+
+    this._element.querySelector('.element__delete-button').addEventListener('click', () => {
+      this._handleCardDelete();
     })
 
     popupPhotoCloseButton.addEventListener ('click', () => {
