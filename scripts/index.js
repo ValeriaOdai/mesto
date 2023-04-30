@@ -64,12 +64,12 @@ function openProfilePopup() {
   nameInput.value = profileNameValue.textContent;
   jobInput.value = profileSubtitleValue.textContent;
   openPopup(popupEditProfileElement);
-  resetValidation(profileFormElement, validationConfig);
+  validationProfileForm.resetValidation();
 };
 
 function openCardsPopup() {
   openPopup(popupCardsElement);
-  resetValidation(cardFormElement, validationConfig);
+  validationCardForm.resetValidation();
 };
 
 // function openPhotoPopup(data) {
@@ -139,3 +139,9 @@ popupCardsElement.addEventListener('click', closePopupByClickOnOverlay);
 
 // popupPhotoCloseButton.addEventListener('click', closePhotoPopup);
 popupPhotoElement.addEventListener('click', closePopupByClickOnOverlay);
+
+const validationProfileForm = new FormValidator (validationConfig, profileFormElement)
+validationProfileForm.enableValidation();
+
+const validationCardForm = new FormValidator (validationConfig, cardFormElement)
+validationCardForm.enableValidation();
