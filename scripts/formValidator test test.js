@@ -1,4 +1,4 @@
-class FormValidator {
+export default class FormValidator {
   constructor (config, form) {
     this._config = config;
     this._form = form;
@@ -22,7 +22,7 @@ class FormValidator {
   
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
-        if (this.hasInvalidInput(this._inputList)) {
+        if (this._hasInvalidInput(this._inputList)) {
           this._disableButton(this._buttonElement);
         } else {
           this._enableButton(this._buttonElement)
@@ -53,7 +53,7 @@ class FormValidator {
     errorElement.textContent = ''
   }
   
-  hasInvalidInput(inputList) {
+  _hasInvalidInput(inputList) {
     return inputList.some(function (inputList) {
       return !inputList.validity.valid;
     })

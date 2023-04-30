@@ -1,3 +1,5 @@
+
+
 const cardsAddButton = document.querySelector('.profile__add-button');
 const cardFormElement = document.querySelector('.popup__content_type_card');
 const popupCardsElement = document.querySelector('.popup_type_card');
