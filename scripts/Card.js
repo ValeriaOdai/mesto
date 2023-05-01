@@ -1,10 +1,10 @@
-import { openPopup, photoInput, photoCaptionInput, popupPhotoElement } from "./index.js"
-
 export default class Card {
-  constructor(data, templateSelector) {
+  constructor(data, templateSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
+
+    this._handleCardClick = handleCardClick
   }
 
   _getTemplate() {
@@ -20,17 +20,12 @@ export default class Card {
   createCard() {
     this._element = this._getTemplate();
     this._setEventListeners();
+
     this._element.querySelector('.element__name').textContent = this._name;
-    this._element.querySelector('.element__photo').src = this._link;
+    this._cardPhoto.src = this._link;
+    this._cardPhoto.alt = this._name;
 
     return this._element;
-  }
-
-  _openPhotoPopup() {
-    photoInput.src = this._link;
-    photoInput.alt = this._name;
-    photoCaptionInput.textContent = this._name;
-    openPopup(popupPhotoElement);
   }
 
   _handleCardLike() {
@@ -42,8 +37,10 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._element.querySelector('.element__photo').addEventListener('click', () => {
-      this._openPhotoPopup()
+    this._cardPhoto = this._element.querySelector('.element__photo');
+
+    this._cardPhoto.addEventListener('click', () => {
+      this._handleCardClick(this._name, this._link);
     })
 
     this._likeIconElement = this._element.querySelector('.element__like-icon');
@@ -54,6 +51,6 @@ export default class Card {
     this._element.querySelector('.element__delete-button').addEventListener('click', () => {
       this._handleCardDelete();
     })
-
   }
+
 }
