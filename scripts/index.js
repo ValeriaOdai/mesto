@@ -77,14 +77,14 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileNameValue.textContent = nameInput.value;
   profileSubtitleValue.textContent = jobInput.value;
-  closeProfilePopup();
+  closePopup(popupEditProfileElement);
 }
 
 function handleCardsFormSubmit(evt) {
   evt.preventDefault();
   const item = { name: cardNameInput.value, link: cardImageInput.value };
   cardsSection.prepend(addCard(item));
-  closeCardsPopup();
+  closePopup(popupCardsElement);
   evt.target.reset();
 }
 
