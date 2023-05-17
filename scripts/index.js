@@ -1,5 +1,6 @@
 import { initialCards, validationConfig } from "./constants.js";
 import Card from "./Card.js";
+import Section from "./Section.js"
 import FormValidator from "./FormValidator.js"
 
 const profileEditButton = document.querySelector('.profile__edit-button');
@@ -34,15 +35,22 @@ validationProfileForm.enableValidation();
 const validationCardForm = new FormValidator(validationConfig, cardFormElement)
 validationCardForm.enableValidation();
 
+
 function addCard(item) {
-  const card = new Card(item, '.card-template', handleCardClick);
-  const cardElement = card.createCard();
-  return cardElement
+const card = new Card(item, '.card-template', handleCardClick);
+const cardElement = card.createCard();
+return cardElement
 }
 
-initialCards.forEach((item) => {
-  cardsSection.append(addCard(item));
-})
+const section = new Section ({
+  items: initialCards, 
+  renderer: (item) =>
+      section.addItem(addCard(item)),
+    }, 
+    '.elements');
+section.renderItems();
+
+
 
 function openPopup(element) {
   element.classList.add('popup_opened');

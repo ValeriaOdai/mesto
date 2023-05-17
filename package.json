@@ -1,0 +1,11 @@
+{
+  "name": "mesto-valeria",
+  "version": "0.0.1",
+  "description": "Проект Mesto, созданный в рамках обучения на программе \"Веб-разработчик\" в Яндекс.Практикум с целью практики использования следующих инструментов:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Valeria Odai",
+  "license": "ISC"
+}
