@@ -1,10 +1,11 @@
 import { initialCards, validationConfig } from "./constants.js";
 import Card from "./Card.js";
 import Section from "./Section.js"
-import Popup from "./Popup.js"
+
 import FormValidator from "./FormValidator.js"
 import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
+import UserInfo from "./UserInfo.js";
 
 const profileEditButton = document.querySelector('.profile__edit-button');
 const popupEditProfileElement = document.querySelector('.popup_type_profile');
@@ -38,8 +39,80 @@ validationProfileForm.enableValidation();
 const validationCardForm = new FormValidator(validationConfig, cardFormElement)
 validationCardForm.enableValidation();
 
+
+
+
+
+
 const popupWithImage = new PopupWithImage('.popup_type_photo');
 popupWithImage.setEventListeners();
+
+
+const profilePopup = new PopupWithForm('.popup_type_profile', handleProfileFormSubmit);
+profilePopup.setEventListeners();
+
+const userInfo = new UserInfo('.popup__info_type_name', '.popup__info_type_occupation'); 
+
+function handleProfileFormSubmit(data) {
+  userInfo.setUserInfo({
+    inputName: data.InputName, 
+    inputInfo: data.inputInfo});
+  console.log('работает')
+}
+
+function openProfilePopup() {
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileInfo.textContent;
+  profilePopup.openPopup();
+  validationProfileForm.resetValidation();
+}
+
+profileEditButton.addEventListener('click', openProfilePopup);
+
+function fillinOpenedForm({profileName, profileInfo}) {
+  nameInput.value = profileName;
+  jobInput.value = profileInfo;
+}
+
+profileEditButton.addEventListener('click', () => {
+  const info = userInfo.getUserInfo();
+  fillinOpenedForm ({
+    profileName: info.profileName,
+    profileInfo: info.profileInfo
+  });
+});
+
+// function openProfilePopup() {
+//   nameInput.value = profileNameValue.textContent;
+//   jobInput.value = profileSubtitleValue.textContent;
+//   openPopup(popupEditProfileElement);
+//   validationProfileForm.resetValidation();
+// };
+
+
+
+// profileEditButton.addEventListener('click', () => {
+//   const { inputName, inputInfo } = userInfo.getUserInfo();
+//   profilePopup.setInputValues( { inputName, inputInfo });
+//   nameInput.value = profileNameValue.textContent;
+//   jobInput.value = profileSubtitleValue.textContent;
+//   profilePopup.openPopup();
+//   validationProfileForm.resetValidation();
+// });
+
+// function handleProfileFormOpen 
+
+// function handleUserFormOpen() {
+// profilePopup.setInputValues(userInfo.getUserInfo());
+// nameInput.value = profileNameValue.textContent;
+// jobInput.value = profileSubtitleValue.textContent;
+// profilePopup.openPopup();
+// validationProfileForm.resetValidation();
+// }
+
+
+
+
 
 function addCard(item) {
 const card = new Card(item, '.card-template', handleCardClick);
@@ -68,17 +141,17 @@ section.renderItems();
 //   document.removeEventListener('keydown', closePopupByEscKey);
 // };
 
-function openProfilePopup() {
-  nameInput.value = profileNameValue.textContent;
-  jobInput.value = profileSubtitleValue.textContent;
-  openPopup(popupEditProfileElement);
-  validationProfileForm.resetValidation();
-};
+// function openProfilePopup() {
+//   nameInput.value = profileNameValue.textContent;
+//   jobInput.value = profileSubtitleValue.textContent;
+//   openPopup(popupEditProfileElement);
+//   validationProfileForm.resetValidation();
+// };
 
-function openCardsPopup() {
-  openPopup(popupCardsElement);
-  validationCardForm.resetValidation();
-};
+// function openCardsPopup() {
+//   openPopup(popupCardsElement);
+//   validationCardForm.resetValidation();
+// };
 
 // function closePopupByEscKey(evt) {
 //   if (evt.key === 'Escape') {
@@ -87,12 +160,7 @@ function openCardsPopup() {
 //   }
 // }
 
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
-  profileNameValue.textContent = nameInput.value;
-  profileSubtitleValue.textContent = jobInput.value;
-  closePopup(popupEditProfileElement);
-}
+
 
 function handleCardsFormSubmit(evt) {
   evt.preventDefault();
@@ -113,10 +181,10 @@ function handleCardClick(name, link) {
   popupWithImage.openPopup(name, link);
 }
 
-profileEditButton.addEventListener('click', openProfilePopup);
-profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 
-cardsAddButton.addEventListener('click', openCardsPopup);
+//profileFormElement.addEventListener('submit', handleProfileFormSubmit);
+
+// cardsAddButton.addEventListener('click', openCardsPopup);
 cardFormElement.addEventListener('submit', handleCardsFormSubmit);
 
 // popups.forEach((popup) => {
