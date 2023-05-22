@@ -4,6 +4,9 @@ export default class UserInfo {
     this._profileInfo = document.querySelector(profileInfoSelector);
   }
 
+  //возвращает объект с данными пользователя. 
+  //Этот метод пригодится когда данные пользователя нужно будет подставить 
+  //в форму при открытии.
   getUserInfo() {
     return {
       userName: this._profileName.textContent,
@@ -11,8 +14,9 @@ export default class UserInfo {
     };
   }
 
+  //принимает новые данные пользователя и добавляет их на страницу.
   setUserInfo(data) {
     this._profileName.textContent = data.name;
-    this._profileInfo.textContent = data.info; 
+    this._profileInfo.textContent = data.occupation; 
   }
 }

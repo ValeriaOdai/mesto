@@ -56,6 +56,10 @@ function addCard(item) {
 const popupWithImage = new PopupWithImage('.popup_type_photo');
 popupWithImage.setEventListeners();
 
+function handleCardClick(name, link) {
+  popupWithImage.openPopup(name, link);
+}
+
 const userInfo = new UserInfo('.profile__name', '.profile__subtitle'); 
 
 const profilePopup = new PopupWithForm('.popup_type_profile', (data) => {
@@ -71,23 +75,19 @@ profileEditButton.addEventListener('click', () => {
   profilePopup.openPopup();
 })
 
+const cardPopup = new PopupWithForm('.popup_type_card', (data) => {
+section.addItem(addCard(data));
+console.log(data);
+})
+cardPopup.setEventListeners();
+
+cardsAddButton.addEventListener('click', () => {
+  validationCardForm.resetValidation();
+  cardPopup.openPopup();
+});
 
 
 
 
-function handleCardsFormSubmit(evt) {
-  evt.preventDefault();
-  const item = { name: cardNameInput.value, link: cardImageInput.value };
-  cardsSection.prepend(addCard(item));
-  closePopup(popupCardsElement);
-  evt.target.reset();
-}
 
-
-function handleCardClick(name, link) {
-  popupWithImage.openPopup(name, link);
-}
-
-
-cardFormElement.addEventListener('submit', handleCardsFormSubmit);
 

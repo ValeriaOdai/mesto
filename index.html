@@ -39,7 +39,7 @@
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__content popup__content_type_profile" name="EditProfileForm" novalidate>
         <input type="text" id="name-profile" class="popup__info popup__info_type_name" value="Жак-Ив Кусто" name="name"
-          minlength="2" maxlength="40" required placeholder="Имя">
+          minlength="2" maxlength="40" name="name" required placeholder="Имя">
         <span class="popup__error name-profile-error"></span>
         <input type="text" id="occupation-profile" class="popup__info popup__info_type_occupation"
           value="Исследователь океана" name="occupation" minlength="2" maxlength="200" required placeholder="О себе">
@@ -58,7 +58,7 @@
           name="name" minlength="2" maxlength="30" required>
         <span class="popup__error name-card-error"></span>
         <input type="url" id="link" class="popup__info popup__info_type_place-link" placeholder="Ссылка на картинку"
-          name="place" required>
+          name="link" required>
         <span class="popup__error link-error"></span>
         <button type="submit" class="popup__submit">Создать</button>
       </form>
