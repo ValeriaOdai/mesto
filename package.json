@@ -1,11 +1,15 @@
 {
   "name": "mesto-valeria",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Проект Mesto, созданный в рамках обучения на программе \"Веб-разработчик\" в Яндекс.Практикум с целью практики использования следующих инструментов:",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Valeria Odai",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.83.1",
+    "webpack-cli": "^5.1.1"
+  }
 }

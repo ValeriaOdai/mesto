@@ -12,5 +12,5 @@ export default class PopupWithImage extends Popup {
     this._photoInputImage.src = link;
     this._photoInputImage.alt = name;
     this._photoInputName.textContent = name;
-}
+  }
 }

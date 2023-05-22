@@ -35,4 +35,21 @@ const validationConfig = {
   errorClass: 'popup__error_active'
 }
 
-export { initialCards, validationConfig };
+const profileEditButton = document.querySelector('.profile__edit-button');
+const profileFormElement = document.querySelector('.popup__content_type_profile');
+const nameInput = profileFormElement.querySelector('.popup__info_type_name');
+const jobInput = profileFormElement.querySelector('.popup__info_type_occupation');
+const cardsAddButton = document.querySelector('.profile__add-button');
+const cardFormElement = document.querySelector('.popup__content_type_card');
+
+
+export {
+  initialCards,
+  validationConfig,
+  profileEditButton,
+  profileFormElement,
+  nameInput,
+  jobInput,
+  cardsAddButton,
+  cardFormElement
+};
