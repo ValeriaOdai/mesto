@@ -4,11 +4,9 @@ import {
   initialCards,
   validationConfig,
   profileEditButton,
-  profileFormElement,
   nameInput,
   jobInput,
   cardsAddButton,
-  cardFormElement
 }
   from "../scripts/utils/constants.js";
 
@@ -19,11 +17,29 @@ import PopupWithImage from "../scripts/components/PopupWithImage.js";
 import PopupWithForm from "../scripts/components/PopupWithForm.js";
 import UserInfo from "../scripts/components/UserInfo.js";
 
-const validationProfileForm = new FormValidator(validationConfig, profileFormElement)
-validationProfileForm.enableValidation();
+// const validationProfileForm = new FormValidator(validationConfig, profileFormElement)
+// validationProfileForm.enableValidation();
 
-const validationCardForm = new FormValidator(validationConfig, cardFormElement)
-validationCardForm.enableValidation();
+// const validationCardForm = new FormValidator(validationConfig, cardFormElement)
+// validationCardForm.enableValidation();
+
+const formValidators = {}
+
+// Включение валидации
+const enableValidation = (validationConfig) => {
+  const formList = Array.from(document.querySelectorAll(validationConfig.formSelector))
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(validationConfig, formElement)
+// получаем данные из атрибута `name` у формы
+    const formName = formElement.getAttribute('name')
+
+   // вот тут в объект записываем под именем формы
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
+enableValidation(validationConfig);
 
 function addCard(item) {
   const card = new Card(item, '.card-template', handleCardClick);
@@ -57,7 +73,7 @@ profileEditButton.addEventListener('click', () => {
   const userData = userInfo.getUserInfo();
   nameInput.value = userData.userName;
   jobInput.value = userData.userInfo;
-  validationProfileForm.resetValidation();
+  formValidators['EditProfileForm'].resetValidation();
   profilePopup.openPopup();
 })
 
@@ -68,7 +84,7 @@ const cardPopup = new PopupWithForm('.popup_type_card', (data) => {
 cardPopup.setEventListeners();
 
 cardsAddButton.addEventListener('click', () => {
-  validationCardForm.resetValidation();
+  formValidators['AddCardForm'].resetValidation();
   cardPopup.openPopup();
 });
 
