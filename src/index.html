@@ -16,9 +16,9 @@
     <section class="profile">
       <img src="<%=require('./images/avatar.jpg')%>" alt="фотография пользователя" class="profile__avatar">
       <div class="profile__info">
-        <h1 class="profile__name">Жак-Ив Кусто </h1>
+        <h1 class="profile__name"> </h1>
         <button class="profile__edit-button cursor-opacity" aria-label="Редактировать профиль" type="button"></button>
-        <p class="profile__subtitle">Исследователь океана</p>
+        <p class="profile__subtitle"></p>
       </div>
       <button class="profile__add-button cursor-opacity" type="button" aria-label="Добавить карточку"></button>
     </section>
@@ -38,10 +38,10 @@
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__content popup__content_type_profile" name="EditProfileForm" novalidate>
         <input type="text" id="name-profile" class="popup__info popup__info_type_name" value="Жак-Ив Кусто" name="name"
-          minlength="2" maxlength="40" required placeholder="Имя">
+          minlength="2" maxlength="40" name="name" required placeholder="Имя">
         <span class="popup__error name-profile-error"></span>
         <input type="text" id="occupation-profile" class="popup__info popup__info_type_occupation"
-          value="Исследователь океана" name="occupation" minlength="2" maxlength="200" required placeholder="О себе">
+          value="Исследователь океана" name="about" minlength="2" maxlength="200" required placeholder="О себе">
         <span class="popup__error occupation-profile-error"></span>
         <button type="submit" class="popup__submit">Сохранить</button>
       </form>
@@ -52,7 +52,7 @@
     <div class="popup__container">
       <button class="popup__close-button popup__close-button_type_cards cursor-opacity" type="button" aria-label="Закрыть всплывающее окно"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__content popup__content_type_card" name="AddCardForm" novalidate>
+      <form class="popup__content popup__content_type_card" name="EditProfileForm" novalidate>
         <input type="text" id="name-card" class="popup__info popup__info_type_place-name" placeholder="Название"
           name="name" minlength="2" maxlength="30" required>
         <span class="popup__error name-card-error"></span>
@@ -78,7 +78,10 @@
       <img src="#" alt="фотография места" class="element__photo">
       <div class="element__description">
         <h2 class="element__name"></h2>
-        <button class="element__like-icon" type="button" aria-label="Поставить лайк"></button>
+        <div class="element__like-menu">
+          <button class="element__like-icon" type="button" aria-label="Поставить лайк"></button>
+          <p class="element__like-number">6</p>
+        </div>
       </div>
     </article>
   </template>

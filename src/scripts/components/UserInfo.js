@@ -17,6 +17,6 @@ export default class UserInfo {
   //принимает новые данные пользователя и добавляет их на страницу.
   setUserInfo(data) {
     this._profileName.textContent = data.name;
-    this._profileInfo.textContent = data.occupation; 
+    this._profileInfo.textContent = data.about; 
   }
 }

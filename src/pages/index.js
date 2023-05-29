@@ -16,6 +16,26 @@ import FormValidator from "../scripts/components/FormValidator.js"
 import PopupWithImage from "../scripts/components/PopupWithImage.js";
 import PopupWithForm from "../scripts/components/PopupWithForm.js";
 import UserInfo from "../scripts/components/UserInfo.js";
+import { 
+  receiveUserInfo,
+receiveCardsInfo
+ } from "../scripts/utils/api.js"
+
+
+
+receiveCardsInfo().then((res) => {
+  if (res.ok) {
+    return res.json()
+  } else {
+    //.....
+  }
+})
+.then ((data) => {
+  const cardsFromApi = data;
+  cardsFromApi.forEach((data) => {
+    section.addItem(addCard(data));
+})
+})
 
 // const validationProfileForm = new FormValidator(validationConfig, profileFormElement)
 // validationProfileForm.enableValidation();
@@ -63,6 +83,19 @@ function handleCardClick(name, link) {
 }
 
 const userInfo = new UserInfo('.profile__name', '.profile__subtitle');
+
+receiveUserInfo().then((res) => {
+  if (res.ok) {
+    return res.json()
+  } else {
+    //.....
+  }
+})
+.then ((res) => {
+ console.log('res >', res);
+userInfo.setUserInfo(res);
+})
+
 
 const profilePopup = new PopupWithForm('.popup_type_profile', (data) => {
   userInfo.setUserInfo(data);
