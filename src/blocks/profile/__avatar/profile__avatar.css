@@ -3,6 +3,9 @@
   height: 120px;
   border-radius: 50%;
   margin-right: 0;
+  padding: 0;
+  position: relative;
+  z-index: 0;
 }
 
 @media screen and (max-width: 767px) {
@@ -10,3 +13,5 @@
     margin: 0;
   }
   }
+
+
