@@ -1,12 +1,12 @@
 import "./index.css"
 
 import {
-  initialCards,
   validationConfig,
   profileEditButton,
   nameInput,
   jobInput,
   cardsAddButton,
+  cardDeleteButton
 }
   from "../scripts/utils/constants.js";
 
@@ -16,26 +16,8 @@ import FormValidator from "../scripts/components/FormValidator.js"
 import PopupWithImage from "../scripts/components/PopupWithImage.js";
 import PopupWithForm from "../scripts/components/PopupWithForm.js";
 import UserInfo from "../scripts/components/UserInfo.js";
-import { 
-  receiveUserInfo,
-receiveCardsInfo
- } from "../scripts/utils/api.js"
-
-
-
-receiveCardsInfo().then((res) => {
-  if (res.ok) {
-    return res.json()
-  } else {
-    //.....
-  }
-})
-.then ((data) => {
-  const cardsFromApi = data;
-  cardsFromApi.forEach((data) => {
-    section.addItem(addCard(data));
-})
-})
+import Api from "../scripts/components/Api.js";
+import PopupWithConfirmation from "../scripts/components/PopupWithConfirmation";
 
 // const validationProfileForm = new FormValidator(validationConfig, profileFormElement)
 // validationProfileForm.enableValidation();
@@ -52,8 +34,7 @@ const enableValidation = (validationConfig) => {
     const validator = new FormValidator(validationConfig, formElement)
 // получаем данные из атрибута `name` у формы
     const formName = formElement.getAttribute('name')
-
-   // вот тут в объект записываем под именем формы
+// вот тут в объект записываем под именем формы
     formValidators[formName] = validator;
     validator.enableValidation();
   });
@@ -61,19 +42,51 @@ const enableValidation = (validationConfig) => {
 
 enableValidation(validationConfig);
 
+const api = new Api({
+  url: 'nomoreparties.co/v1/cohort-68',
+  headers: {
+          authorization:'b25b72bc-51ef-48ad-9d2c-047b0075abab',
+        }
+})
+
+let userId = null;
+
+api.receiveUserInfo().then ((info) => {
+  console.log('userinfo ---->', info)
+  userInfo.setUserInfo(info);
+  userInfo.setAvatar(info);
+  userId = info._id
+  console.log('userId ->>>>', userId)
+})
+.catch((err) => {
+  console.log(err); 
+}); 
+
+api.receiveCardsInfo().then ((data) => {
+    console.log('cards data====>', data)
+    const cardsFromApi = data;
+    cardsFromApi.forEach((data) => {
+      section.addItem(addCard(data));
+  })
+  })
+  .catch((err) => {
+    console.log(err); 
+  }); 
+
 function addCard(item) {
-  const card = new Card(item, '.card-template', handleCardClick);
+  const card = new Card(item, '.card-template', handleCardClick, api, userId)
   const cardElement = card.createCard();
   return cardElement
 }
 
 const section = new Section({
-  items: initialCards,
+  items: [],
   renderer: (item) =>
     section.addItem(addCard(item)),
 },
   '.elements');
 section.renderItems();
+
 
 const popupWithImage = new PopupWithImage('.popup_type_photo');
 popupWithImage.setEventListeners();
@@ -82,20 +95,7 @@ function handleCardClick(name, link) {
   popupWithImage.openPopup(name, link);
 }
 
-const userInfo = new UserInfo('.profile__name', '.profile__subtitle');
-
-receiveUserInfo().then((res) => {
-  if (res.ok) {
-    return res.json()
-  } else {
-    //.....
-  }
-})
-.then ((res) => {
- console.log('res >', res);
-userInfo.setUserInfo(res);
-})
-
+const userInfo = new UserInfo('.profile__name', '.profile__subtitle', '.profile__avatar');
 
 const profilePopup = new PopupWithForm('.popup_type_profile', (data) => {
   userInfo.setUserInfo(data);
@@ -121,8 +121,10 @@ cardsAddButton.addEventListener('click', () => {
   cardPopup.openPopup();
 });
 
+// const deleteConfirmationPopup = new PopupWithConfirmation('.popup_type_confirm-delete', () => {
+//   console.log('работает')
+// })
 
-
-
-
-
+// cardDeleteButton.addEventListener('click', () => {
+//   deleteConfirmationPopup.openPopup();
+// })
