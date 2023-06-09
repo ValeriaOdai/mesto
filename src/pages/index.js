@@ -97,9 +97,18 @@ function handleCardClick(name, link) {
 
 const userInfo = new UserInfo('.profile__name', '.profile__subtitle', '.profile__avatar');
 
-const profilePopup = new PopupWithForm('.popup_type_profile', (data) => {
-  userInfo.setUserInfo(data);
-});
+const profilePopup = new PopupWithForm('.popup_type_profile', handleProfileSubmit);
+
+function handleProfileSubmit(data) {
+  api.editProfileInfo({
+    name: nameInput.value,
+    about: jobInput.value
+  }).then((data) => {
+    console.log('сабмитим профиль', data)
+    userInfo.setUserInfo(data);
+  })
+}
+
 profilePopup.setEventListeners();
 
 profileEditButton.addEventListener('click', () => {

@@ -25,7 +25,18 @@ export default class Api {
     .then(this._handleResponse);
   }
 
-  ////НОВАЯ ЧАСТЬ
+  editProfileInfo(info) {
+    return fetch(`https://mesto.${this._url}/users/me`, {
+      method: 'PATCH',
+      headers: {
+        authorization: this._authorization,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(info)
+    })
+    .then(this._handleResponse);
+  }
+
 
   deleteCard(cardId) {
     return fetch(`https://mesto.${this._url}/cards/${cardId}`, {
