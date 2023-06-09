@@ -54,11 +54,11 @@ const api = new Api({
 let userId = null;
 
 api.receiveUserInfo().then ((info) => {
-  console.log('userinfo ---->', info)
+  //console.log('userinfo ---->', info)
   userInfo.setUserInfo(info);
   userInfo.setAvatar(info);
   userId = info._id
-  console.log('userId ->>>>', userId)
+  //console.log('userId ->>>>', userId)
 })
 .catch((err) => {
   console.log(err); 
@@ -76,10 +76,17 @@ api.receiveCardsInfo().then ((data) => {
   }); 
 
 function addCard(item) {
-  const card = new Card(item, '.card-template', handleCardClick, api, userId)
+  const card = new Card(item, '.card-template', handleCardClick, (id) => {
+    api.deleteCard(id)
+    .then(() => {
+      card.deleteCardElement();
+    })
+  })
+ // console.log('что входит в айтем', item);
   const cardElement = card.createCard();
   return cardElement
 }
+
 
 const section = new Section({
   items: [],
@@ -108,7 +115,9 @@ function handleProfileSubmit() {
   }).then((data) => {
     console.log('сабмитим профиль', data)
     userInfo.setUserInfo(data);
-  })
+  }).catch((err) => {
+    console.log(err); 
+  }); 
 }
 
 profilePopup.setEventListeners();
@@ -130,7 +139,9 @@ function handleCardSubmit() {
   }).then((data) => {
     console.log('карточка и ее дата ->>>>', data);
     section.addItem(addCard(data));
-  })
+  }).catch((err) => {
+    console.log(err); 
+  }); 
 }
 
 // const cardPopup = new PopupWithForm('.popup_type_card', (data) => {
@@ -144,10 +155,3 @@ cardsAddButton.addEventListener('click', () => {
   cardPopup.openPopup();
 });
 
-// const deleteConfirmationPopup = new PopupWithConfirmation('.popup_type_confirm-delete', () => {
-//   console.log('работает')
-// })
-
-// cardDeleteButton.addEventListener('click', () => {
-//   deleteConfirmationPopup.openPopup();
-// })
