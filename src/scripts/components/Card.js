@@ -33,9 +33,6 @@ export default class Card {
   showDeleteButton() {
     if (this._userId === this._id) {
       this._element.classList.add('element__delete-button');
-      this._element.querySelector('.element__delete-button').addEventListener('click', () => {
-        this._handleCardDelete();
-      })
     } else {
       this._element.classList.remove('element__delete-button');
     }
@@ -73,9 +70,9 @@ export default class Card {
       this._handleCardLike()
     });
 
-    // this._element.querySelector('.element__delete-button').addEventListener('click', () => {
-    //   this._handleCardDelete();
-    // })
+    this._element.querySelector('.element__delete-button').addEventListener('click', () => {
+      this._handleCardDelete();
+    })
   }
  ///тестовая часть 
 

@@ -37,6 +37,18 @@ export default class Api {
     .then(this._handleResponse);
   }
 
+  ///я тут
+  createNewCard(info) {
+    return fetch(`https://mesto.${this._url}/cards`, {
+      method: 'POST',
+      headers: {
+        authorization: this._authorization,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(info)
+    })
+    .then(this._handleResponse);
+  }
 
   deleteCard(cardId) {
     return fetch(`https://mesto.${this._url}/cards/${cardId}`, {

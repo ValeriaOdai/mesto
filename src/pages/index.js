@@ -6,7 +6,9 @@ import {
   nameInput,
   jobInput,
   cardsAddButton,
-  cardDeleteButton
+  cardDeleteButton,
+  cardNameInput,
+  cardLinkInput
 }
   from "../scripts/utils/constants.js";
 
@@ -99,7 +101,7 @@ const userInfo = new UserInfo('.profile__name', '.profile__subtitle', '.profile_
 
 const profilePopup = new PopupWithForm('.popup_type_profile', handleProfileSubmit);
 
-function handleProfileSubmit(data) {
+function handleProfileSubmit() {
   api.editProfileInfo({
     name: nameInput.value,
     about: jobInput.value
@@ -119,10 +121,22 @@ profileEditButton.addEventListener('click', () => {
   profilePopup.openPopup();
 })
 
-const cardPopup = new PopupWithForm('.popup_type_card', (data) => {
-  section.addItem(addCard(data));
-  console.log(data);
-})
+const cardPopup = new PopupWithForm('.popup_type_card', handleCardSubmit)
+
+function handleCardSubmit() {
+  api.createNewCard({
+    name: cardNameInput.value,
+    link: cardLinkInput.value    
+  }).then((data) => {
+    console.log('карточка и ее дата ->>>>', data);
+    section.addItem(addCard(data));
+  })
+}
+
+// const cardPopup = new PopupWithForm('.popup_type_card', (data) => {
+//   section.addItem(addCard(data));
+//   console.log(data);
+// })
 cardPopup.setEventListeners();
 
 cardsAddButton.addEventListener('click', () => {
