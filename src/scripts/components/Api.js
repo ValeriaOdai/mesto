@@ -37,7 +37,7 @@ export default class Api {
     .then(this._handleResponse);
   }
 
-  ///я тут
+  
   createNewCard(info) {
     return fetch(`https://mesto.${this._url}/cards`, {
       method: 'POST',
@@ -59,6 +59,29 @@ export default class Api {
       }
     })
       .then(this._handleResponse);
+  }
+
+  //занимаемся лайками
+  likeCard(cardId) {
+    return fetch(`https://mesto.${this._url}/cards/${cardId}/likes`, {
+      method: 'PUT',
+      headers: {
+        authorization: this._authorization,
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(this._handleResponse);
+  }
+
+  deleteLike(cardId) {
+    return fetch(`https://mesto.${this._url}/cards/${cardId}/likes`, {
+      method: 'DELETE',
+      headers: {
+        authorization: this._authorization,
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(this._handleResponse);
   }
 
   _handleResponse(res) {

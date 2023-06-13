@@ -81,12 +81,28 @@ function addCard(item) {
     .then(() => {
       card.deleteCardElement();
     })
-  })
+  },
+  userId, (id) => {
+    api.likeCard(id)
+    .then((data) => {
+      card.handleCardLike(data)
+    })
+  },
+  (id) => {
+    api.deleteLike(id)
+    .then((data) => {
+      card.handleCardLike(data)
+    })
+  }
+  )
  // console.log('что входит в айтем', item);
   const cardElement = card.createCard();
   return cardElement
 }
 
+function handleCardLike() {
+  const isLiked = card.isLiked()
+}
 
 const section = new Section({
   items: [],
