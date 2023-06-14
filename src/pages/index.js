@@ -75,14 +75,26 @@ api.receiveCardsInfo().then ((data) => {
     console.log(err); 
   }); 
 
+
+
+// function deleteCardApi (card, cardId) {
+//   api.deleteCard(cardId)
+//   .then(() => {
+//     card.deleteCardElement();
+//     popupDeleteConfirmation.closePopup();
+//   })
+// }
+
+
+
+
+
 function addCard(item) {
-  const card = new Card(item, '.card-template', handleCardClick, (id) => {
-    api.deleteCard(id)
-    .then(() => {
-      card.deleteCardElement();
-    })
-  },
-  userId, (id) => {
+  const card = new Card(
+    item, 
+    '.card-template', 
+    handleCardClick,  
+    (id) => {
     api.likeCard(id)
     .then((data) => {
       card.handleCardLike(data)
@@ -93,16 +105,37 @@ function addCard(item) {
     .then((data) => {
       card.handleCardLike(data)
     })
-  }
-  )
- // console.log('что входит в айтем', item);
+  },
+  (element, elementId) => {
+    //popupDeleteConfirmation.setEventListeners(card, cardId)
+    popupDeleteConfirmation.openPopup(element, elementId)
+  },
+  userId)
   const cardElement = card.createCard();
   return cardElement
 }
 
-function handleCardLike() {
-  const isLiked = card.isLiked()
-}
+const popupDeleteConfirmation = new PopupWithConfirmation('.popup_type_confirm-delete', (element, elementId) => {
+  api.deleteCard(elementId)
+  .then(() => {
+    element.remove();
+  })
+})
+
+popupDeleteConfirmation.setEventListeners();
+
+  // (id) => {
+  //   api.deleteCard(id)
+  //   .then(() => {
+  //     card.deleteCardElement();
+  //   })
+  // },
+
+
+
+// function handleCardLike() {
+//   const isLiked = card.isLiked()
+// }
 
 const section = new Section({
   items: [],
@@ -160,14 +193,11 @@ function handleCardSubmit() {
   }); 
 }
 
-// const cardPopup = new PopupWithForm('.popup_type_card', (data) => {
-//   section.addItem(addCard(data));
-//   console.log(data);
-// })
 cardPopup.setEventListeners();
 
 cardsAddButton.addEventListener('click', () => {
   formValidators['AddCardForm'].resetValidation();
   cardPopup.openPopup();
 });
+
 

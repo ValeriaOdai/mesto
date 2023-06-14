@@ -1,17 +1,18 @@
 export default class Card {
-  constructor(data, templateSelector, handleCardClick, handleCardDelete, userId, handleLike, handleRemoveLike) {
+  constructor(data, templateSelector, handleCardClick, handleLike, handleRemoveLike, openPopupWithConfirmation, userId) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick
     this._id = data._id;
-    this._handleCardDelete = handleCardDelete;
+    //this._handleCardDelete = handleCardDelete;
     //новое
     this._handleLike = handleLike;
     this._handleRemoveLike = handleRemoveLike;
     this._likes = data.likes;
     this._userId = userId;
-    
+    this._ownerId = data.owner._id;
+    this._openPopupWithConfirmation = openPopupWithConfirmation;
   }
 
   _getTemplate() {
@@ -23,16 +24,15 @@ export default class Card {
 
     return cardElement;
   }
-
+  
   createCard() {
     this._element = this._getTemplate();
-    //новое
     this._likeIconElement = this._element.querySelector('.element__like-icon');
     this._likesNumber = this._element.querySelector('.element__like-number');
     this._likesNumber.textContent = this._likes.length;
     this._deleteButton = this._element.querySelector('.element__delete-button');
     this.isLiked();
-    //наверху новое
+    this.showDeleteButton();
     this._setEventListeners();
 
     this._element.querySelector('.element__name').textContent = this._name;
@@ -42,15 +42,19 @@ export default class Card {
     return this._element;
   }
 
-  // showDeleteButton() {
-  //   if (this._userId === this._id) {
-  //     this._element.classList.add('element__delete-button');
-  //   } else {
-  //     this._element.classList.remove('element__delete-button');
-  //   }
-  // }
+  showDeleteButton() {
+    //console.log('оунер айди', this._ownerId)
+    //console.log('юзер айди', this._userId)
+    if (this._ownerId === this._userId) {
+      this._deleteButton.style.display = 'block'
+    } else {
+      this._deleteButton.style.display = 'none'
+    }
+  }
 
-  //делаем кнопку лайк
+  // getID() {
+  //   return this._id;
+  // }
 
   isLiked() {
     this._likes.forEach((like) => {
@@ -68,6 +72,7 @@ export default class Card {
 
   deleteCardElement() {
       this._element.remove();
+      this._element = null;
   }
 
   _setEventListeners() {
@@ -77,7 +82,6 @@ export default class Card {
       this._handleCardClick(this._name, this._link);
     })
 
-    //this._likeIconElement = this._element.querySelector('.element__like-icon');
     this._likeIconElement.addEventListener('click', () => {
       if (this._likeIconElement.classList.contains('element__like-icon_status_on')) {
         this._handleRemoveLike(this._id)
@@ -86,8 +90,8 @@ export default class Card {
       }
     });
 
-    this._element.querySelector('.element__delete-button').addEventListener('click', () => {
-      this._handleCardDelete(this._id);
+    this._deleteButton.addEventListener('click', () => {
+      this._openPopupWithConfirmation(this._element, this._id);
     })
   }
  
