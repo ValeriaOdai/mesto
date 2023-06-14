@@ -1,22 +1,22 @@
-.profile__avatar_status_edit {
+.profile__edit-avatar {
   display: block;
   position: relative;
 }
 
-.profile__avatar_status_edit:before {
+.profile__edit-avatar:before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: no-repeat center center url('../../../../images/pencil.svg');
+  background: no-repeat center center url('../../../images/pencil.svg');
   opacity: 0;
   z-index: 1;
   transition: opacity 0.4s ease;
 }
 
-.profile__avatar_status_edit:after {
+.profile__edit-avatar:after {
   content: '';
   position: absolute;
   top: 0;
@@ -28,7 +28,7 @@
   transition: opacity 0.4s ease;
 } 
 
-.profile__avatar_status_edit:hover:before,
-.profile__avatar_status_edit:hover:after {
+.profile__edit-avatar:hover:before,
+.profile__edit-avatar:hover:after {
   opacity: 1;
 }

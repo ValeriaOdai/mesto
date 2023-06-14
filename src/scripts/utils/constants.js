@@ -43,7 +43,7 @@ const cardsAddButton = document.querySelector('.profile__add-button');
 const cardNameInput = document.querySelector('.popup__info_type_place-name');
 const cardLinkInput = document.querySelector('.popup__info_type_place-link');
 const avatarLinkInput = document.querySelector('.popup__info_type_avatar-link');
-const avatarChangeButton = document.querySelector('.profile__avatar_status_edit')
+const avatarChangeButton = document.querySelector('.profile__edit-avatar')
 
 export {
   validationConfig,
