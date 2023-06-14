@@ -37,7 +37,6 @@ export default class Api {
     .then(this._handleResponse);
   }
 
-  
   createNewCard(info) {
     return fetch(`https://mesto.${this._url}/cards`, {
       method: 'POST',
@@ -61,7 +60,6 @@ export default class Api {
       .then(this._handleResponse);
   }
 
-  //занимаемся лайками
   likeCard(cardId) {
     return fetch(`https://mesto.${this._url}/cards/${cardId}/likes`, {
       method: 'PUT',
@@ -80,6 +78,18 @@ export default class Api {
         authorization: this._authorization,
         'Content-Type': 'application/json'
       }
+    })
+    .then(this._handleResponse);
+  }
+
+  changeAvatar(info) {
+    return fetch(`https://mesto.${this._url}/users/me/avatar`, {
+      method: 'PATCH',
+      headers: {
+        authorization: this._authorization,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(info)
     })
     .then(this._handleResponse);
   }

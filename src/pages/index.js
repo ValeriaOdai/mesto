@@ -6,9 +6,10 @@ import {
   nameInput,
   jobInput,
   cardsAddButton,
-  cardDeleteButton,
   cardNameInput,
-  cardLinkInput
+  cardLinkInput,
+  avatarLinkInput,
+  avatarChangeButton
 }
   from "../scripts/utils/constants.js";
 
@@ -76,19 +77,6 @@ api.receiveCardsInfo().then ((data) => {
   }); 
 
 
-
-// function deleteCardApi (card, cardId) {
-//   api.deleteCard(cardId)
-//   .then(() => {
-//     card.deleteCardElement();
-//     popupDeleteConfirmation.closePopup();
-//   })
-// }
-
-
-
-
-
 function addCard(item) {
   const card = new Card(
     item, 
@@ -107,7 +95,6 @@ function addCard(item) {
     })
   },
   (element, elementId) => {
-    //popupDeleteConfirmation.setEventListeners(card, cardId)
     popupDeleteConfirmation.openPopup(element, elementId)
   },
   userId)
@@ -124,19 +111,6 @@ const popupDeleteConfirmation = new PopupWithConfirmation('.popup_type_confirm-d
 
 popupDeleteConfirmation.setEventListeners();
 
-  // (id) => {
-  //   api.deleteCard(id)
-  //   .then(() => {
-  //     card.deleteCardElement();
-  //   })
-  // },
-
-
-
-// function handleCardLike() {
-//   const isLiked = card.isLiked()
-// }
-
 const section = new Section({
   items: [],
   renderer: (item) =>
@@ -144,7 +118,6 @@ const section = new Section({
 },
   '.elements');
 section.renderItems();
-
 
 const popupWithImage = new PopupWithImage('.popup_type_photo');
 popupWithImage.setEventListeners();
@@ -200,4 +173,21 @@ cardsAddButton.addEventListener('click', () => {
   cardPopup.openPopup();
 });
 
+const avatarPopup = new PopupWithForm('.popup_type_avatar', handleAvatarSubmit)
 
+function handleAvatarSubmit() {
+  api.changeAvatar({
+    avatar: avatarLinkInput.value
+  }).then((data) => {
+    console.log('данные про аватар ---->', data)
+    userInfo.setAvatar(data);
+  }).catch((err) => {
+    console.log(err); 
+  }); 
+}
+avatarPopup.setEventListeners();
+
+avatarChangeButton.addEventListener('click', () => {
+  formValidators['ChangeAvatarForm'].resetValidation();
+  avatarPopup.openPopup();
+})

@@ -4,7 +4,6 @@ export default class PopupWithConfirmation extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;
-    this._formConfirmation = this._popup.querySelector('.popup__content_type_confirmation');
     this._submitButton = this._popup.querySelector('.popup__submit-delete-button')
   }
 
@@ -16,7 +15,7 @@ export default class PopupWithConfirmation extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    this._formConfirmation.addEventListener('submit', (evt) => {
+    this._submitButton.addEventListener('click', (evt) => {
       console.log('click')
       evt.preventDefault();
       this._handleFormSubmit(this._element, this._elementId);

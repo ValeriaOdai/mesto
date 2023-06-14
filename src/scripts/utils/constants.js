@@ -40,10 +40,11 @@ const profileFormElement = document.querySelector('.popup__content_type_profile'
 const nameInput = profileFormElement.querySelector('.popup__info_type_name');
 const jobInput = profileFormElement.querySelector('.popup__info_type_occupation');
 const cardsAddButton = document.querySelector('.profile__add-button');
-const cardDeleteButton = document.querySelector('.element__delete-button');
+//const cardDeleteButton = document.querySelector('.element__delete-button');
 const cardNameInput = document.querySelector('.popup__info_type_place-name');
 const cardLinkInput = document.querySelector('.popup__info_type_place-link');
-
+const avatarLinkInput = document.querySelector('.popup__info_type_avatar-link')
+const avatarChangeButton = document.querySelector('.profile__avatar_status_edit')
 
 export {
   validationConfig,
@@ -51,7 +52,8 @@ export {
   nameInput,
   jobInput,
   cardsAddButton,
-  cardDeleteButton,
   cardNameInput,
-  cardLinkInput
+  cardLinkInput,
+  avatarLinkInput,
+  avatarChangeButton
 };
