@@ -5,8 +5,6 @@ export default class Card {
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick
     this._id = data._id;
-    //this._handleCardDelete = handleCardDelete;
-    //новое
     this._handleLike = handleLike;
     this._handleRemoveLike = handleRemoveLike;
     this._likes = data.likes;
@@ -24,7 +22,7 @@ export default class Card {
 
     return cardElement;
   }
-  
+
   createCard() {
     this._element = this._getTemplate();
     this._likeIconElement = this._element.querySelector('.element__like-icon');
@@ -43,8 +41,6 @@ export default class Card {
   }
 
   showDeleteButton() {
-    //console.log('оунер айди', this._ownerId)
-    //console.log('юзер айди', this._userId)
     if (this._ownerId === this._userId) {
       this._deleteButton.style.display = 'block'
     } else {
@@ -52,14 +48,10 @@ export default class Card {
     }
   }
 
-  // getID() {
-  //   return this._id;
-  // }
-
   isLiked() {
     this._likes.forEach((like) => {
-      if (like._id === this._id) {
-        this.likeIconElement.classList.add('element__like-icon_status_on')
+      if (like._id === this._userId) {
+        this._likeIconElement.classList.add('element__like-icon_status_on')
       }
     })
   }
@@ -71,8 +63,8 @@ export default class Card {
   }
 
   deleteCardElement() {
-      this._element.remove();
-      this._element = null;
+    this._element.remove();
+    this._element = null;
   }
 
   _setEventListeners() {
@@ -94,6 +86,6 @@ export default class Card {
       this._openPopupWithConfirmation(this._element, this._id);
     })
   }
- 
+
 }
 
