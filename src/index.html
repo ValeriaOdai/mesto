@@ -16,8 +16,7 @@
     <section class="profile">
       <div class="profile__avatar-container">
       <a href="#" class="profile__avatar_status_edit">
-        <img src="" alt="фотография пользователя" class="profile__avatar">
-        <!-- <img src="<%=require('./images/avatar.jpg')%>" alt="фотография пользователя" class="profile__avatar"> -->
+        <img src="#" alt="фотография пользователя" class="profile__avatar">
       </a>
       </div>
       <div class="profile__info">
@@ -43,7 +42,7 @@
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__content popup__content_type_profile" name="EditProfileForm" novalidate>
         <input type="text" id="name-profile" class="popup__info popup__info_type_name" value="Жак-Ив Кусто" name="name"
-          minlength="2" maxlength="40" name="name" required placeholder="Имя">
+          minlength="2" maxlength="40" required placeholder="Имя">
         <span class="popup__error name-profile-error"></span>
         <input type="text" id="occupation-profile" class="popup__info popup__info_type_occupation"
           value="Исследователь океана" name="about" minlength="2" maxlength="200" required placeholder="О себе">
@@ -61,9 +60,9 @@
         <input type="text" id="name-card" class="popup__info popup__info_type_place-name" placeholder="Название"
           name="name" minlength="2" maxlength="30" required>
         <span class="popup__error name-card-error"></span>
-        <input type="url" id="link" class="popup__info popup__info_type_place-link" placeholder="Ссылка на картинку"
+        <input type="url" id="link-card" class="popup__info popup__info_type_place-link" placeholder="Ссылка на картинку"
           name="link" required>
-        <span class="popup__error link-error"></span>
+        <span class="popup__error link-card-error"></span>
         <button type="submit" class="popup__submit">Создать</button>
       </form>
     </div>
@@ -82,6 +81,7 @@
       <button class="popup__close-button popup__close-button_type_confirm-delete cursor-opacity" type="button" aria-label="Закрыть всплывающее окно"></button>
       <h2 class="popup__title">Вы уверены?</h2>
       <button type="submit" class="popup__submit popup__submit_state_valid popup__submit-delete-button">Да</button>
+
     </div>
   </section>
 
