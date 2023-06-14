@@ -131,6 +131,7 @@ const userInfo = new UserInfo('.profile__name', '.profile__subtitle', '.profile_
 const profilePopup = new PopupWithForm('.popup_type_profile', handleProfileSubmit);
 
 function handleProfileSubmit() {
+  profilePopup.renderLoading(true)
   api.editProfileInfo({
     name: nameInput.value,
     about: jobInput.value
@@ -139,7 +140,10 @@ function handleProfileSubmit() {
     userInfo.setUserInfo(data);
   }).catch((err) => {
     console.log(err); 
-  }); 
+  })
+  .finally(() => {
+    profilePopup.renderLoading(false)
+  })
 }
 
 profilePopup.setEventListeners();
@@ -155,6 +159,7 @@ profileEditButton.addEventListener('click', () => {
 const cardPopup = new PopupWithForm('.popup_type_card', handleCardSubmit)
 
 function handleCardSubmit() {
+  cardPopup.renderLoading(true)
   api.createNewCard({
     name: cardNameInput.value,
     link: cardLinkInput.value    
@@ -163,7 +168,10 @@ function handleCardSubmit() {
     section.addItem(addCard(data));
   }).catch((err) => {
     console.log(err); 
-  }); 
+  })
+  .finally(() => {
+    cardPopup.renderLoading(false)
+  })
 }
 
 cardPopup.setEventListeners();
@@ -176,6 +184,7 @@ cardsAddButton.addEventListener('click', () => {
 const avatarPopup = new PopupWithForm('.popup_type_avatar', handleAvatarSubmit)
 
 function handleAvatarSubmit() {
+  avatarPopup.renderLoading(true)
   api.changeAvatar({
     avatar: avatarLinkInput.value
   }).then((data) => {
@@ -183,7 +192,10 @@ function handleAvatarSubmit() {
     userInfo.setAvatar(data);
   }).catch((err) => {
     console.log(err); 
-  }); 
+  })
+  .finally(() => {
+    avatarPopup.renderLoading(false)
+  })
 }
 avatarPopup.setEventListeners();
 
