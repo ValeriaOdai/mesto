@@ -1,5 +1,6 @@
 import Popup from './Popup.js'
 
+
 export default class PopupWithConfirmation extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super(popupSelector);
@@ -11,6 +12,8 @@ export default class PopupWithConfirmation extends Popup {
     super.openPopup();
     this._element = element,
     this._elementId = elementId;
+    console.log('элемент---->',this._element );
+    console.log('элмент айди ---->', this._elementId)
   }
 
   setEventListeners() {
@@ -19,7 +22,9 @@ export default class PopupWithConfirmation extends Popup {
       console.log('click')
       evt.preventDefault();
       this._handleFormSubmit(this._element, this._elementId);
-      super.closePopup();
+      console.log('хэндл сабмит элемент ---->',this._element);
+      console.log('хэндл сабмит элмент айди ---->', this._elementId)
+      
     })
   }
 
