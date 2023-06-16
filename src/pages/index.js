@@ -90,8 +90,6 @@ function addCard(item) {
     },
     (card, cardId) => {
       popupDeleteConfirmation.openPopup(card, cardId);
-      console.log('кард ---->', card);
-      console.log('карда айди ---->', cardId)
     },
     userId)
   const cardElement = card.createCard();
@@ -143,7 +141,6 @@ function handleProfileSubmit() {
   })
     .finally(() => {
       profilePopup.renderLoading(false);
-      ;
     })
 }
 
