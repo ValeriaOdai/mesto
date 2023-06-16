@@ -90,29 +90,21 @@ function addCard(item) {
     },
     (card, cardId) => {
       popupDeleteConfirmation.openPopup(card, cardId);
+      console.log('кард ---->', card);
+      console.log('карда айди ---->', cardId)
     },
     userId)
   const cardElement = card.createCard();
   return cardElement
 }
 
-const section = new Section({
-  items: [],
-  renderer: (item) =>
-    section.addItem(addCard(item)),
-},
-  '.elements');
-section.renderItems();
-
-const userInfo = new UserInfo('.profile__name', '.profile__subtitle', '.profile__avatar');
-
 const popupDeleteConfirmation = new PopupWithConfirmation('.popup_type_confirm-delete', handleCardDelete);
 
 function handleCardDelete (element, elementId) {
   api.deleteCard(elementId)
     .then(() => {
-      element.deleteCardElement()
-      popupDeleteConfirmation.closePopup()
+      element.deleteCardElement();
+      popupDeleteConfirmation.closePopup();
     })
     .catch((err) => {
       console.log(err);
@@ -120,6 +112,14 @@ function handleCardDelete (element, elementId) {
 }
 
 popupDeleteConfirmation.setEventListeners();
+
+const section = new Section(renderCards,'.elements')
+
+function renderCards(cardList) {
+  section.addItem(addCard(cardList))
+}
+
+const userInfo = new UserInfo('.profile__name', '.profile__subtitle', '.profile__avatar');
 
 const popupWithImage = new PopupWithImage('.popup_type_photo');
 popupWithImage.setEventListeners();
@@ -137,11 +137,13 @@ function handleProfileSubmit() {
     about: jobInput.value
   }).then((data) => {
     userInfo.setUserInfo(data);
+    profilePopup.closePopup();
   }).catch((err) => {
     console.log(err);
   })
     .finally(() => {
-      profilePopup.renderLoading(false)
+      profilePopup.renderLoading(false);
+      ;
     })
 }
 
@@ -164,6 +166,7 @@ function handleCardSubmit() {
     link: cardLinkInput.value
   }).then((data) => {
     section.addItem(addCard(data));
+    cardPopup.closePopup();
   }).catch((err) => {
     console.log(err);
   })
@@ -187,6 +190,7 @@ function handleAvatarSubmit() {
     avatar: avatarLinkInput.value
   }).then((data) => {
     userInfo.setAvatar(data);
+    avatarPopup.closePopup
   }).catch((err) => {
     console.log(err);
   })

@@ -23,28 +23,11 @@ export default class Card {
     return cardElement;
   }
 
-  createCard() {
-    this._element = this._getTemplate();
-    this._likeIconElement = this._element.querySelector('.element__like-icon');
-    this._likesNumber = this._element.querySelector('.element__like-number');
-    this._likesNumber.textContent = this._likes.length;
-    this._deleteButton = this._element.querySelector('.element__delete-button');
-    this.isLiked();
-    this.showDeleteButton();
-    this._setEventListeners();
-
-    this._element.querySelector('.element__name').textContent = this._name;
-    this._cardPhoto.src = this._link;
-    this._cardPhoto.alt = this._name;
-
-    return this._element;
-  }
-
   showDeleteButton() {
     if (this._ownerId === this._userId) {
-      this._deleteButton.style.display = 'block'
+      this._deleteButton.classList.add('element__delete-button_state_visible')
     } else {
-      this._deleteButton.style.display = 'none'
+      this._deleteButton.classList.remove('element__delete-button_state_visible')
     }
   }
 
@@ -64,7 +47,7 @@ export default class Card {
 
   deleteCardElement() {
     this._element.remove();
-    //this._element = null;
+    this._element = null;
   }
 
   _setEventListeners() {
@@ -83,8 +66,25 @@ export default class Card {
     });
 
     this._deleteButton.addEventListener('click', () => {
-      this._openPopupWithConfirmation(this._element, this._id);
+      this._openPopupWithConfirmation(this, this._id);
     })
+  }
+
+  createCard() {
+    this._element = this._getTemplate();
+    this._likeIconElement = this._element.querySelector('.element__like-icon');
+    this._likesNumber = this._element.querySelector('.element__like-number');
+    this._likesNumber.textContent = this._likes.length;
+    this._deleteButton = this._element.querySelector('.element__delete-button');
+    this.isLiked();
+    this.showDeleteButton();
+    this._setEventListeners();
+
+    this._element.querySelector('.element__name').textContent = this._name;
+    this._cardPhoto.src = this._link;
+    this._cardPhoto.alt = this._name;
+
+    return this._element;
   }
 
 }
